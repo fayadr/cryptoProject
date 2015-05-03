@@ -843,11 +843,15 @@ mime-mhs-headings 2	: id-hex-multipart-message : id-hex-multipart-message
 !Cname zlib-compression
 id-smime-alg 8		: ZLIB			: zlib compression
 
+
+
+
 # AES aka Rijndael
 
 !Alias csor 2 16 840 1 101 3
 !Alias nistAlgorithms csor 4
 !Alias aes nistAlgorithms 1
+!Alias speck nistAlgorithms 2
 
 aes 1			: AES-128-ECB		: aes-128-ecb
 aes 2			: AES-128-CBC		: aes-128-cbc
@@ -900,6 +904,12 @@ aes 48			: id-aes256-wrap-pad
 			: DES-EDE3-CFB1		: des-ede3-cfb1
 			: DES-EDE3-CFB8		: des-ede3-cfb8
 
+			
+#SPECK
+speck 1                 : SPECK-128-CBC         : speck-128-cbc
+speck 2                : SPECK-192-CBC         : speck-192-cbc 
+speck 3                : SPECK-256-CBC         : speck-256-cbc
+			
 # OIDs for SHA224, SHA256, SHA385 and SHA512, according to x9.84.
 !Alias nist_hashalgs nistAlgorithms 2
 nist_hashalgs 1		: SHA256		: sha256

@@ -104,6 +104,9 @@
 #ifndef OPENSSL_NO_AES
 #include <openssl/aes.h>
 #endif
+#ifndef OPENSSL_NO_SPECK
+#include <openssl/speck.h>
+#endif
 #ifndef OPENSSL_NO_BF
 #include <openssl/blowfish.h>
 #endif
@@ -186,7 +189,7 @@ static const char *names[ALGOR_NUM] = {
 	"aes-128 cbc", "aes-192 cbc", "aes-256 cbc",
 	"camellia-128 cbc", "camellia-192 cbc", "camellia-256 cbc",
 	"evp", "sha256", "sha512", "whirlpool",
-"aes-128 ige", "aes-192 ige", "aes-256 ige", "ghash"};
+"aes-128 ige", "aes-192 ige", "aes-256 ige", "ghash", "speck-128-cbc", "speck-192-cbc", "speck-256-cbc"};
 static double results[ALGOR_NUM][SIZE_NUM];
 static int lengths[SIZE_NUM] = {16, 64, 256, 1024, 8 * 1024};
 static double rsa_results[RSA_NUM][2];
@@ -299,6 +302,17 @@ speed_main(int argc, char **argv)
 		0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12, 0x34,
 	0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12, 0x34, 0x56};
 #endif
+#ifndef OPENSSL_NO_SPECK
+        static const unsigned char key24[24] =
+        {0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0,
+                0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12,
+        0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12, 0x34};
+        static const unsigned char key32[32] =
+        {0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0,
+                0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12,
+                0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12, 0x34,
+        0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12, 0x34, 0x56};        
+#endif
 #ifndef OPENSSL_NO_CAMELLIA
 	static const unsigned char ckey24[24] =
 	{0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0,
@@ -311,6 +325,8 @@ speed_main(int argc, char **argv)
 	0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12, 0x34, 0x56};
 #endif
 #ifndef OPENSSL_NO_AES
+#define MAX_BLOCK_SIZE 128
+#elseif OPENSSL_NO_SPECK
 #define MAX_BLOCK_SIZE 128
 #else
 #define MAX_BLOCK_SIZE 64
@@ -327,6 +343,9 @@ speed_main(int argc, char **argv)
 #endif
 #ifndef OPENSSL_NO_AES
 	AES_KEY aes_ks1, aes_ks2, aes_ks3;
+#endif
+#ifndef OPENSSL_NO_SPECK
+        SPECK_KEY speck_ks1, speck_ks2, speck_ks3;
 #endif
 #ifndef OPENSSL_NO_CAMELLIA
 	CAMELLIA_KEY camellia_ks1, camellia_ks2, camellia_ks3;
@@ -361,6 +380,9 @@ speed_main(int argc, char **argv)
 #define D_IGE_192_AES   27
 #define D_IGE_256_AES   28
 #define D_GHASH		29
+#define D_CBC_128_SPECK 30
+#define D_CBC_192_SPECK 31
+#define D_CBC_256_SPECK 32
 	double d = 0.0;
 	long c[ALGOR_NUM][SIZE_NUM];
 #define	R_DSA_512	0
@@ -669,6 +691,15 @@ speed_main(int argc, char **argv)
 			doit[D_IGE_256_AES] = 1;
 		else
 #endif
+#ifndef OPENSSL_NO_SPECK
+                if (strcmp(*argv, "speck-128-cbc") == 0)
+                        doit[D_CBC_128_SPECK] = 1;
+                else if (strcmp(*argv, "speck-192-cbc") == 0)
+                        doit[D_CBC_192_SPECK] = 1;
+                else if (strcmp(*argv, "speck-256-cbc") == 0)
+                        doit[D_CBC_256_SPECK] = 1;
+                else
+#endif
 #ifndef OPENSSL_NO_CAMELLIA
 		if (strcmp(*argv, "camellia-128-cbc") == 0)
 			doit[D_CBC_128_CML] = 1;
@@ -758,6 +789,13 @@ speed_main(int argc, char **argv)
 		} else if (strcmp(*argv, "ghash") == 0) {
 			doit[D_GHASH] = 1;
 		} else
+#endif
+#ifndef OPENSSL_NO_SPECK
+                if (strcmp(*argv, "speck") == 0) {
+                        doit[D_CBC_128_SPECK] = 1;
+                        doit[D_CBC_192_SPECK] = 1;
+                        doit[D_CBC_256_SPECK] = 1;
+                } else                    
 #endif
 #ifndef OPENSSL_NO_CAMELLIA
 		if (strcmp(*argv, "camellia") == 0) {
@@ -1033,6 +1071,11 @@ speed_main(int argc, char **argv)
 	AES_set_encrypt_key(key16, 128, &aes_ks1);
 	AES_set_encrypt_key(key24, 192, &aes_ks2);
 	AES_set_encrypt_key(key32, 256, &aes_ks3);
+#endif
+#ifndef OPENSSL_NO_SPECK
+        SPECK_set_encrypt_key(key16, 128, &speck_ks1);
+        SPECK_set_encrypt_key(key24, 192, &speck_ks2);
+        SPECK_set_encrypt_key(key32, 256, &speck_ks3);
 #endif
 #ifndef OPENSSL_NO_CAMELLIA
 	Camellia_set_key(key16, 128, &camellia_ks1);
@@ -1311,6 +1354,44 @@ speed_main(int argc, char **argv)
 		}
 		CRYPTO_gcm128_release(ctx);
 	}
+#endif
+#ifndef OPENSSL_NO_SPECK
+        if (doit[D_CBC_128_SPECK]) {
+                for (j = 0; j < SIZE_NUM; j++) {
+                        print_message(names[D_CBC_128_SPECK], c[D_CBC_128_SPECK][j], lengths[j]);
+                        Time_F(START);
+                        for (count = 0, run = 1; COND(c[D_CBC_128_SPECK][j]); count++)
+                                SPECK_cbc_encrypt(buf, buf,
+                                    (unsigned long) lengths[j], &speck_ks1,
+                                    iv, SPECK_ENCRYPT);
+                        d = Time_F(STOP);
+                        print_result(D_CBC_128_SPECK, j, count, d);
+                }
+        }
+        if (doit[D_CBC_192_SPECK]) {
+                for (j = 0; j < SIZE_NUM; j++) {
+                        print_message(names[D_CBC_192_SPECK], c[D_CBC_192_SPECK][j], lengths[j]);
+                        Time_F(START);
+                        for (count = 0, run = 1; COND(c[D_CBC_192_SPECK][j]); count++)
+                                SPECK_cbc_encrypt(buf, buf,
+                                    (unsigned long) lengths[j], &speck_ks2,
+                                    iv, SPECK_ENCRYPT);
+                        d = Time_F(STOP);
+                        print_result(D_CBC_192_SPECK, j, count, d);
+                }
+        }
+        if (doit[D_CBC_256_SPECK]) {
+                for (j = 0; j < SIZE_NUM; j++) {
+                        print_message(names[D_CBC_256_SPECK], c[D_CBC_256_SPECK][j], lengths[j]);
+                        Time_F(START);
+                        for (count = 0, run = 1; COND(c[D_CBC_256_SPECK][j]); count++)
+                                SPECK_cbc_encrypt(buf, buf,
+                                    (unsigned long) lengths[j], &speck_ks3,
+                                    iv, SPECK_ENCRYPT);
+                        d = Time_F(STOP);
+                        print_result(D_CBC_256_SPECK, j, count, d);
+                }
+        }
 #endif
 #ifndef OPENSSL_NO_CAMELLIA
 	if (doit[D_CBC_128_CML]) {
@@ -1801,6 +1882,9 @@ show_res:
 #endif
 #ifndef OPENSSL_NO_AES
 		printf("%s ", AES_options());
+#endif
+#ifndef OPENSSL_NO_SPECK
+                printf("%s ", SPECK_options());
 #endif
 #ifndef OPENSSL_NO_IDEA
 		printf("%s ", idea_options());

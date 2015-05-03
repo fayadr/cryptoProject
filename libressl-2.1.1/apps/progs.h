@@ -156,6 +156,11 @@ FUNCTION functions[] = {
 	{ FUNC_TYPE_CIPHER, "aes-256-cbc", enc_main },
 	{ FUNC_TYPE_CIPHER, "aes-256-ecb", enc_main },
 #endif
+#ifndef OPENSSL_NO_SPECK
+        { FUNC_TYPE_CIPHER, "aes-128-cbc", enc_main },
+        { FUNC_TYPE_CIPHER, "aes-192-cbc", enc_main },
+        { FUNC_TYPE_CIPHER, "aes-256-cbc", enc_main },
+#endif
 #ifndef OPENSSL_NO_BF
 	{ FUNC_TYPE_CIPHER, "bf", enc_main },
 	{ FUNC_TYPE_CIPHER, "bf-cbc", enc_main },

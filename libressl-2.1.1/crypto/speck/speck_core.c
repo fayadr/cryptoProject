@@ -1,26 +1,5 @@
 /* $OpenBSD: aes_core.c,v 1.10 2014/06/12 15:49:27 deraadt Exp $ */
-/**
- * rijndael-alg-fst.c
- *
- * @version 1.0 (April 2015)
- *
- * Optimised ANSI C code for the Rijndael cipher (now AES)
- *
- * @author Vincent Rijmen <vincent.rijmen@esat.kuleuven.ac.be>
- *
- * This code is hereby placed in the public domain.
- *
- * THIS SOFTWARE IS PROVIDED BY THE AUTHORS ''AS IS'' AND ANY EXPRESS
- * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
- * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
- * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+/*SE METTRE UNE LICENCE ICI
  */
 
 /* Note: rewritten a little bit to provide error control and an OpenSSL-
@@ -40,67 +19,92 @@
 
 #define _lrotr(x,n,w) (((x) >> (n)) | ((x) << (w-(n))))
 #define _lrotl(x,n,w) (((x) << (n)) | ((x) >> (w-(n))))
-typedef uint64_t u64;
-typedef uint32_t u32;
-typedef uint16_t u16;
-typedef uint8_t u8;
 
 
-void SPECK_expand_key(u64 l[], u64 k[], u16 key_size, u8 n){
-    u8 m = 0, alpha = 0, beta = 0, T = 0;
-    /*-----Pre-processing-----*/
-    switch (key_size) {
-        case 128:
-            m = 2;
-            T = 32;
-            break;
-        case 192:
-            m = 3;
-            T = 33;
-            break;
-        case 256:
-            m = 4;
-            T = 34;
-            break;
-        default:
-            fprintf(stderr,"key_size problem when expanding key.\n");
-            exit(1);
-            break;
-    }
-    alpha = 8;
-    beta = 3;  
-    /*-----Expanding key-----*/
-    u8 i;
-    for(i=0;i<T-1;i++){
-        l[i+m-1] = (k[i] + _lrotr(l[i],alpha,n))^i;
-        k[i+1] = l[i+m-1] ^ _lrotl(k[i],beta,n);
-    }
+/*
+ * struct speck_key_st {
+    u64 l[35];
+    u64 k[32];
+    u8 m;
+    u8 t;
+};
+ */
+void SPECK_set_encrypt_key(const unsigned char *userKey, const int bits, SPECK_KEY *key){
+        u8 alpha = 8, beta = 3;
+        if (!userKey || !key)
+                return -1;
+        if (bits != 128 && bits != 192 && bits != 256)
+                return -2;
+//        rk = key->rd_key;
+
+        switch (key_size) {
+            case 128:
+                key->m = 2;
+                key->t = 32;
+                key->l[0] = GETU64(userKey);
+                key->k[0] = GETU64(userKey + 8);
+                break;
+            case 192:
+                key->m = 3;
+                key->t = 33;
+                key->l[1] = GETU64(userKey);
+                key->l[0] = GETU64(userKey + 8);
+                key->k[0] = GETU64(userKey + 16);
+                break;
+            case 256:
+                key->m = 4;
+                key->t = 34;
+                (key->l)[2] = GETU64(userKey);
+                (key->l)[1] = GETU64(userKey + 8);
+                (key->l)[0] = GETU64(userKey + 16);
+                (key->k)[0] = GETU64(userKey + 24);
+                break;
+            default:
+                return -3;
+                break;
+        }  
+        //-----Expanding key-----
+        u8 i;
+        for(i=0;i<(key->t)-1;i++){
+            (key->l)[i+m-1] = ((key->k)[i] + _lrotr((key->l)[i],alpha,64))^i;
+            (key->k)[i+1] = (key->l)[i+m-1] ^ _lrotl((key->k)[i],beta,64);
+        }
 }
 
-void SPECK_encrypt(u64 pt[], u64 ct[], u64 k[], u16 key_size, u8 n){
-    u8 m = 0, alpha = 0, beta = 0, T = 0;
-    switch (key_size) {
-        case 128:
-            m = 2;
-            T = 32;
-            break;
-        case 192:
-            m = 3;
-            T = 33;
-            break;
-        case 256:
-            m = 4;
-            T = 34;
-            break;
-        default:
-            fprintf(stderr,"key_size problem when encrypting key.\n");
-            exit(1);
-            break;
-    }
-    alpha = 8;
-    beta = 3;   
+/*
+ * Encrypt a single block
+ * in and out can overlap
+ */
+
+void SPECK_encrypt(const unsigned char *in, unsigned char *out, const SPECK_KEY *key){
+    u8 alpha = 8, beta = 3;
+    u8 i;
+    //-------Transforming input------
+    u64 pt[2] = {0};
+    u64 ct[2] = {0};
+    pt[0] = GETU64(in);
+    pt[1] = GETU64(in + 8);   
     
-    /*-----Encrypting-----*/
+    //------Encrypting-------
+    ct[0] = pt[0];
+    ct[1] = pt[1];
+    for(i=0; i<T; i++){
+        ct[0] = (_lrotr(ct[0],alpha,64) + ct[1]) ^ ((key->k)[i]);
+        ct[1] = _lrotl(ct[1],beta,64) ^ ct[0];
+    }
+    
+    //------Transforming output------
+    PUTU64(out,pt[0]);
+    PUTU64(out + 8, pt[1]);   
+}
+
+/*
+
+
+void SPECK_encrypt(u64 pt[], u64 ct[], u64 k[], u16 key_size, u8 n){
+  
+    
+    //-----Encrypting-----
     u8 i;
     ct[0] = pt[0];
     ct[1] = pt[1];
@@ -110,5 +114,6 @@ void SPECK_encrypt(u64 pt[], u64 ct[], u64 k[], u16 key_size, u8 n){
     } 
     
 }
+*/
 
 

@@ -81,13 +81,14 @@ openssl-speed.o: speed.c /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/i386-linux-gnu/asm/errno.h /usr/include/asm-generic/errno.h \
  /usr/include/asm-generic/errno-base.h ../include/openssl/ocsp.h \
  ../include/openssl/x509v3.h ../include/openssl/modes.h \
- ../include/openssl/aes.h ../include/openssl/blowfish.h \
- ../include/openssl/cast.h ../include/openssl/des.h \
- ../include/openssl/hmac.h ../include/openssl/idea.h \
- ../include/openssl/mdc2.h ../include/openssl/md4.h \
- ../include/openssl/md5.h ../include/openssl/rc2.h \
- ../include/openssl/rc4.h ../include/openssl/ripemd.h \
- ../include/openssl/whrlpool.h testdsa.h testrsa.h
+ ../include/openssl/aes.h ../include/openssl/speck.h \
+ ../include/openssl/blowfish.h ../include/openssl/cast.h \
+ ../include/openssl/des.h ../include/openssl/hmac.h \
+ ../include/openssl/idea.h ../include/openssl/mdc2.h \
+ ../include/openssl/md4.h ../include/openssl/md5.h \
+ ../include/openssl/rc2.h ../include/openssl/rc4.h \
+ ../include/openssl/ripemd.h ../include/openssl/whrlpool.h testdsa.h \
+ testrsa.h
 
 /usr/include/stdc-predef.h:
 
@@ -344,6 +345,8 @@ apps.h:
 ../include/openssl/modes.h:
 
 ../include/openssl/aes.h:
+
+../include/openssl/speck.h:
 
 ../include/openssl/blowfish.h:
 

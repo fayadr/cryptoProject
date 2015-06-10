@@ -174,7 +174,7 @@ pkey_print_message(const char *str, const char *str2,
 static void print_result(int alg, int run_no, int count, double time_used);
 static int do_multi(int multi);
 
-#define ALGOR_NUM	30
+#define ALGOR_NUM	33
 #define SIZE_NUM	5
 #define RSA_NUM		4
 #define DSA_NUM		3
@@ -303,11 +303,11 @@ speed_main(int argc, char **argv)
 	0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12, 0x34, 0x56};
 #endif
 #ifndef OPENSSL_NO_SPECK
-        static const unsigned char key24[24] =
+        static const unsigned char skey24[24] =
         {0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0,
                 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12,
         0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12, 0x34};
-        static const unsigned char key32[32] =
+        static const unsigned char skey32[32] =
         {0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0,
                 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12,
                 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0, 0x12, 0x34,
@@ -326,7 +326,8 @@ speed_main(int argc, char **argv)
 #endif
 #ifndef OPENSSL_NO_AES
 #define MAX_BLOCK_SIZE 128
-#elseif OPENSSL_NO_SPECK
+#endif
+#ifndef OPENSSL_NO_SPECK
 #define MAX_BLOCK_SIZE 128
 #else
 #define MAX_BLOCK_SIZE 64
@@ -1074,8 +1075,8 @@ speed_main(int argc, char **argv)
 #endif
 #ifndef OPENSSL_NO_SPECK
         SPECK_set_encrypt_key(key16, 128, &speck_ks1);
-        SPECK_set_encrypt_key(key24, 192, &speck_ks2);
-        SPECK_set_encrypt_key(key32, 256, &speck_ks3);
+        SPECK_set_encrypt_key(skey24, 192, &speck_ks2);
+        SPECK_set_encrypt_key(skey32, 256, &speck_ks3);
 #endif
 #ifndef OPENSSL_NO_CAMELLIA
 	Camellia_set_key(key16, 128, &camellia_ks1);
@@ -1884,7 +1885,7 @@ show_res:
 		printf("%s ", AES_options());
 #endif
 #ifndef OPENSSL_NO_SPECK
-                printf("%s ", SPECK_options());
+//                printf("%s ", SPECK_options());
 #endif
 #ifndef OPENSSL_NO_IDEA
 		printf("%s ", idea_options());

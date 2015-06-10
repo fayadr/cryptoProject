@@ -334,6 +334,7 @@ am_libcrypto_la_OBJECTS = libcrypto_la-cpt_err.lo \
 	evp/libcrypto_la-bio_md.lo evp/libcrypto_la-c_all.lo \
 	evp/libcrypto_la-c_allc.lo evp/libcrypto_la-c_alld.lo \
 	evp/libcrypto_la-digest.lo evp/libcrypto_la-e_aes.lo \
+	evp/libcrypto_la-e_speck.lo \
 	evp/libcrypto_la-e_aes_cbc_hmac_sha1.lo \
 	evp/libcrypto_la-e_bf.lo evp/libcrypto_la-e_cast.lo \
 	evp/libcrypto_la-e_chacha.lo \
@@ -419,7 +420,8 @@ am_libcrypto_la_OBJECTS = libcrypto_la-cpt_err.lo \
 	rsa/libcrypto_la-rsa_x931.lo sha/libcrypto_la-sha1_one.lo \
 	sha/libcrypto_la-sha1dgst.lo sha/libcrypto_la-sha256.lo \
 	sha/libcrypto_la-sha512.lo sha/libcrypto_la-sha_dgst.lo \
-	sha/libcrypto_la-sha_one.lo stack/libcrypto_la-stack.lo \
+	sha/libcrypto_la-sha_one.lo speck/libcrypto_la-speck_core.lo \
+	speck/libcrypto_la-speck_cbc.lo stack/libcrypto_la-stack.lo \
 	ts/libcrypto_la-ts_asn1.lo ts/libcrypto_la-ts_conf.lo \
 	ts/libcrypto_la-ts_err.lo ts/libcrypto_la-ts_lib.lo \
 	ts/libcrypto_la-ts_req_print.lo \
@@ -755,13 +757,13 @@ libcrypto_la_SOURCES = cpt_err.c cryptlib.c cversion.c ex_data.c \
 	engine/tb_store.c err/err.c err/err_all.c err/err_prn.c \
 	evp/bio_b64.c evp/bio_enc.c evp/bio_md.c evp/c_all.c \
 	evp/c_allc.c evp/c_alld.c evp/digest.c evp/e_aes.c \
-	evp/e_aes_cbc_hmac_sha1.c evp/e_bf.c evp/e_cast.c \
-	evp/e_chacha.c evp/e_chacha20poly1305.c evp/e_des.c \
-	evp/e_des3.c evp/e_idea.c evp/e_null.c evp/e_old.c evp/e_rc2.c \
-	evp/e_rc4.c evp/e_rc4_hmac_md5.c evp/e_xcbc_d.c evp/encode.c \
-	evp/evp_aead.c evp/evp_enc.c evp/evp_err.c evp/evp_key.c \
-	evp/evp_lib.c evp/evp_pbe.c evp/evp_pkey.c evp/m_dss.c \
-	evp/m_dss1.c evp/m_ecdsa.c evp/m_md4.c evp/m_md5.c \
+	evp/e_speck.c evp/e_aes_cbc_hmac_sha1.c evp/e_bf.c \
+	evp/e_cast.c evp/e_chacha.c evp/e_chacha20poly1305.c \
+	evp/e_des.c evp/e_des3.c evp/e_idea.c evp/e_null.c evp/e_old.c \
+	evp/e_rc2.c evp/e_rc4.c evp/e_rc4_hmac_md5.c evp/e_xcbc_d.c \
+	evp/encode.c evp/evp_aead.c evp/evp_enc.c evp/evp_err.c \
+	evp/evp_key.c evp/evp_lib.c evp/evp_pbe.c evp/evp_pkey.c \
+	evp/m_dss.c evp/m_dss1.c evp/m_ecdsa.c evp/m_md4.c evp/m_md5.c \
 	evp/m_mdc2.c evp/m_null.c evp/m_ripemd.c evp/m_sha.c \
 	evp/m_sha1.c evp/m_sigver.c evp/m_wp.c evp/names.c \
 	evp/p5_crpt.c evp/p5_crpt2.c evp/p_dec.c evp/p_enc.c \
@@ -798,30 +800,31 @@ libcrypto_la_SOURCES = cpt_err.c cryptlib.c cversion.c ex_data.c \
 	rsa/rsa_prn.c rsa/rsa_pss.c rsa/rsa_saos.c rsa/rsa_sign.c \
 	rsa/rsa_ssl.c rsa/rsa_x931.c sha/sha1_one.c sha/sha1dgst.c \
 	sha/sha256.c sha/sha512.c sha/sha_dgst.c sha/sha_one.c \
-	stack/stack.c ts/ts_asn1.c ts/ts_conf.c ts/ts_err.c \
-	ts/ts_lib.c ts/ts_req_print.c ts/ts_req_utils.c \
-	ts/ts_rsp_print.c ts/ts_rsp_sign.c ts/ts_rsp_utils.c \
-	ts/ts_rsp_verify.c ts/ts_verify_ctx.c txt_db/txt_db.c \
-	ui/ui_err.c ui/ui_lib.c ui/ui_openssl.c ui/ui_util.c \
-	whrlpool/wp_block.c whrlpool/wp_dgst.c x509/by_dir.c \
-	x509/by_file.c x509/x509_att.c x509/x509_cmp.c x509/x509_d2.c \
-	x509/x509_def.c x509/x509_err.c x509/x509_ext.c x509/x509_lu.c \
-	x509/x509_obj.c x509/x509_r2x.c x509/x509_req.c \
-	x509/x509_set.c x509/x509_trs.c x509/x509_txt.c x509/x509_v3.c \
-	x509/x509_vfy.c x509/x509_vpm.c x509/x509cset.c \
-	x509/x509name.c x509/x509rset.c x509/x509spki.c \
-	x509/x509type.c x509/x_all.c x509v3/pcy_cache.c \
-	x509v3/pcy_data.c x509v3/pcy_lib.c x509v3/pcy_map.c \
-	x509v3/pcy_node.c x509v3/pcy_tree.c x509v3/v3_akey.c \
-	x509v3/v3_akeya.c x509v3/v3_alt.c x509v3/v3_bcons.c \
-	x509v3/v3_bitst.c x509v3/v3_conf.c x509v3/v3_cpols.c \
-	x509v3/v3_crld.c x509v3/v3_enum.c x509v3/v3_extku.c \
-	x509v3/v3_genn.c x509v3/v3_ia5.c x509v3/v3_info.c \
-	x509v3/v3_int.c x509v3/v3_lib.c x509v3/v3_ncons.c \
-	x509v3/v3_ocsp.c x509v3/v3_pci.c x509v3/v3_pcia.c \
-	x509v3/v3_pcons.c x509v3/v3_pku.c x509v3/v3_pmaps.c \
-	x509v3/v3_prn.c x509v3/v3_purp.c x509v3/v3_skey.c \
-	x509v3/v3_sxnet.c x509v3/v3_utl.c x509v3/v3err.c
+	speck/speck_core.c speck/speck_cbc.c stack/stack.c \
+	ts/ts_asn1.c ts/ts_conf.c ts/ts_err.c ts/ts_lib.c \
+	ts/ts_req_print.c ts/ts_req_utils.c ts/ts_rsp_print.c \
+	ts/ts_rsp_sign.c ts/ts_rsp_utils.c ts/ts_rsp_verify.c \
+	ts/ts_verify_ctx.c txt_db/txt_db.c ui/ui_err.c ui/ui_lib.c \
+	ui/ui_openssl.c ui/ui_util.c whrlpool/wp_block.c \
+	whrlpool/wp_dgst.c x509/by_dir.c x509/by_file.c \
+	x509/x509_att.c x509/x509_cmp.c x509/x509_d2.c x509/x509_def.c \
+	x509/x509_err.c x509/x509_ext.c x509/x509_lu.c x509/x509_obj.c \
+	x509/x509_r2x.c x509/x509_req.c x509/x509_set.c \
+	x509/x509_trs.c x509/x509_txt.c x509/x509_v3.c x509/x509_vfy.c \
+	x509/x509_vpm.c x509/x509cset.c x509/x509name.c \
+	x509/x509rset.c x509/x509spki.c x509/x509type.c x509/x_all.c \
+	x509v3/pcy_cache.c x509v3/pcy_data.c x509v3/pcy_lib.c \
+	x509v3/pcy_map.c x509v3/pcy_node.c x509v3/pcy_tree.c \
+	x509v3/v3_akey.c x509v3/v3_akeya.c x509v3/v3_alt.c \
+	x509v3/v3_bcons.c x509v3/v3_bitst.c x509v3/v3_conf.c \
+	x509v3/v3_cpols.c x509v3/v3_crld.c x509v3/v3_enum.c \
+	x509v3/v3_extku.c x509v3/v3_genn.c x509v3/v3_ia5.c \
+	x509v3/v3_info.c x509v3/v3_int.c x509v3/v3_lib.c \
+	x509v3/v3_ncons.c x509v3/v3_ocsp.c x509v3/v3_pci.c \
+	x509v3/v3_pcia.c x509v3/v3_pcons.c x509v3/v3_pku.c \
+	x509v3/v3_pmaps.c x509v3/v3_prn.c x509v3/v3_purp.c \
+	x509v3/v3_skey.c x509v3/v3_sxnet.c x509v3/v3_utl.c \
+	x509v3/v3err.c
 EXTRA_libcrypto_la_SOURCES = des/ncbc_enc.c chacha/chacha-merged.c \
 	poly1305/poly1305-donna.c
 all: all-am
@@ -1625,6 +1628,8 @@ evp/libcrypto_la-digest.lo: evp/$(am__dirstamp) \
 	evp/$(DEPDIR)/$(am__dirstamp)
 evp/libcrypto_la-e_aes.lo: evp/$(am__dirstamp) \
 	evp/$(DEPDIR)/$(am__dirstamp)
+evp/libcrypto_la-e_speck.lo: evp/$(am__dirstamp) \
+	evp/$(DEPDIR)/$(am__dirstamp)
 evp/libcrypto_la-e_aes_cbc_hmac_sha1.lo: evp/$(am__dirstamp) \
 	evp/$(DEPDIR)/$(am__dirstamp)
 evp/libcrypto_la-e_bf.lo: evp/$(am__dirstamp) \
@@ -2063,6 +2068,16 @@ sha/libcrypto_la-sha_dgst.lo: sha/$(am__dirstamp) \
 	sha/$(DEPDIR)/$(am__dirstamp)
 sha/libcrypto_la-sha_one.lo: sha/$(am__dirstamp) \
 	sha/$(DEPDIR)/$(am__dirstamp)
+speck/$(am__dirstamp):
+	@$(MKDIR_P) speck
+	@: > speck/$(am__dirstamp)
+speck/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) speck/$(DEPDIR)
+	@: > speck/$(DEPDIR)/$(am__dirstamp)
+speck/libcrypto_la-speck_core.lo: speck/$(am__dirstamp) \
+	speck/$(DEPDIR)/$(am__dirstamp)
+speck/libcrypto_la-speck_cbc.lo: speck/$(am__dirstamp) \
+	speck/$(DEPDIR)/$(am__dirstamp)
 stack/$(am__dirstamp):
 	@$(MKDIR_P) stack
 	@: > stack/$(am__dirstamp)
@@ -2355,6 +2370,8 @@ mostlyclean-compile:
 	-rm -f rsa/*.lo
 	-rm -f sha/*.$(OBJEXT)
 	-rm -f sha/*.lo
+	-rm -f speck/*.$(OBJEXT)
+	-rm -f speck/*.lo
 	-rm -f stack/*.$(OBJEXT)
 	-rm -f stack/*.lo
 	-rm -f ts/*.$(OBJEXT)
@@ -2689,6 +2706,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@evp/$(DEPDIR)/libcrypto_la-e_rc2.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@evp/$(DEPDIR)/libcrypto_la-e_rc4.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@evp/$(DEPDIR)/libcrypto_la-e_rc4_hmac_md5.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@evp/$(DEPDIR)/libcrypto_la-e_speck.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@evp/$(DEPDIR)/libcrypto_la-e_xcbc_d.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@evp/$(DEPDIR)/libcrypto_la-encode.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@evp/$(DEPDIR)/libcrypto_la-evp_aead.Plo@am__quote@
@@ -2836,6 +2854,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@sha/$(DEPDIR)/libcrypto_la-sha512.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@sha/$(DEPDIR)/libcrypto_la-sha_dgst.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@sha/$(DEPDIR)/libcrypto_la-sha_one.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@speck/$(DEPDIR)/libcrypto_la-speck_cbc.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@speck/$(DEPDIR)/libcrypto_la-speck_core.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stack/$(DEPDIR)/libcrypto_la-stack.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@ts/$(DEPDIR)/libcrypto_la-ts_asn1.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@ts/$(DEPDIR)/libcrypto_la-ts_conf.Plo@am__quote@
@@ -5045,6 +5065,13 @@ evp/libcrypto_la-e_aes.lo: evp/e_aes.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -c -o evp/libcrypto_la-e_aes.lo `test -f 'evp/e_aes.c' || echo '$(srcdir)/'`evp/e_aes.c
 
+evp/libcrypto_la-e_speck.lo: evp/e_speck.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -MT evp/libcrypto_la-e_speck.lo -MD -MP -MF evp/$(DEPDIR)/libcrypto_la-e_speck.Tpo -c -o evp/libcrypto_la-e_speck.lo `test -f 'evp/e_speck.c' || echo '$(srcdir)/'`evp/e_speck.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) evp/$(DEPDIR)/libcrypto_la-e_speck.Tpo evp/$(DEPDIR)/libcrypto_la-e_speck.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='evp/e_speck.c' object='evp/libcrypto_la-e_speck.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -c -o evp/libcrypto_la-e_speck.lo `test -f 'evp/e_speck.c' || echo '$(srcdir)/'`evp/e_speck.c
+
 evp/libcrypto_la-e_aes_cbc_hmac_sha1.lo: evp/e_aes_cbc_hmac_sha1.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -MT evp/libcrypto_la-e_aes_cbc_hmac_sha1.lo -MD -MP -MF evp/$(DEPDIR)/libcrypto_la-e_aes_cbc_hmac_sha1.Tpo -c -o evp/libcrypto_la-e_aes_cbc_hmac_sha1.lo `test -f 'evp/e_aes_cbc_hmac_sha1.c' || echo '$(srcdir)/'`evp/e_aes_cbc_hmac_sha1.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) evp/$(DEPDIR)/libcrypto_la-e_aes_cbc_hmac_sha1.Tpo evp/$(DEPDIR)/libcrypto_la-e_aes_cbc_hmac_sha1.Plo
@@ -6158,6 +6185,20 @@ sha/libcrypto_la-sha_one.lo: sha/sha_one.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -c -o sha/libcrypto_la-sha_one.lo `test -f 'sha/sha_one.c' || echo '$(srcdir)/'`sha/sha_one.c
 
+speck/libcrypto_la-speck_core.lo: speck/speck_core.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -MT speck/libcrypto_la-speck_core.lo -MD -MP -MF speck/$(DEPDIR)/libcrypto_la-speck_core.Tpo -c -o speck/libcrypto_la-speck_core.lo `test -f 'speck/speck_core.c' || echo '$(srcdir)/'`speck/speck_core.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) speck/$(DEPDIR)/libcrypto_la-speck_core.Tpo speck/$(DEPDIR)/libcrypto_la-speck_core.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='speck/speck_core.c' object='speck/libcrypto_la-speck_core.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -c -o speck/libcrypto_la-speck_core.lo `test -f 'speck/speck_core.c' || echo '$(srcdir)/'`speck/speck_core.c
+
+speck/libcrypto_la-speck_cbc.lo: speck/speck_cbc.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -MT speck/libcrypto_la-speck_cbc.lo -MD -MP -MF speck/$(DEPDIR)/libcrypto_la-speck_cbc.Tpo -c -o speck/libcrypto_la-speck_cbc.lo `test -f 'speck/speck_cbc.c' || echo '$(srcdir)/'`speck/speck_cbc.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) speck/$(DEPDIR)/libcrypto_la-speck_cbc.Tpo speck/$(DEPDIR)/libcrypto_la-speck_cbc.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='speck/speck_cbc.c' object='speck/libcrypto_la-speck_cbc.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -c -o speck/libcrypto_la-speck_cbc.lo `test -f 'speck/speck_cbc.c' || echo '$(srcdir)/'`speck/speck_cbc.c
+
 stack/libcrypto_la-stack.lo: stack/stack.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -MT stack/libcrypto_la-stack.lo -MD -MP -MF stack/$(DEPDIR)/libcrypto_la-stack.Tpo -c -o stack/libcrypto_la-stack.lo `test -f 'stack/stack.c' || echo '$(srcdir)/'`stack/stack.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) stack/$(DEPDIR)/libcrypto_la-stack.Tpo stack/$(DEPDIR)/libcrypto_la-stack.Plo
@@ -6765,6 +6806,7 @@ clean-libtool:
 	-rm -rf ripemd/.libs ripemd/_libs
 	-rm -rf rsa/.libs rsa/_libs
 	-rm -rf sha/.libs sha/_libs
+	-rm -rf speck/.libs speck/_libs
 	-rm -rf stack/.libs stack/_libs
 	-rm -rf ts/.libs ts/_libs
 	-rm -rf txt_db/.libs txt_db/_libs
@@ -6972,6 +7014,8 @@ distclean-generic:
 	-rm -f rsa/$(am__dirstamp)
 	-rm -f sha/$(DEPDIR)/$(am__dirstamp)
 	-rm -f sha/$(am__dirstamp)
+	-rm -f speck/$(DEPDIR)/$(am__dirstamp)
+	-rm -f speck/$(am__dirstamp)
 	-rm -f stack/$(DEPDIR)/$(am__dirstamp)
 	-rm -f stack/$(am__dirstamp)
 	-rm -f ts/$(DEPDIR)/$(am__dirstamp)
@@ -6996,7 +7040,7 @@ clean-am: clean-generic clean-libLTLIBRARIES clean-libtool \
 	clean-noinstLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ./$(DEPDIR) aes/$(DEPDIR) asn1/$(DEPDIR) bf/$(DEPDIR) bio/$(DEPDIR) bn/$(DEPDIR) buffer/$(DEPDIR) cast/$(DEPDIR) chacha/$(DEPDIR) cmac/$(DEPDIR) comp/$(DEPDIR) compat/$(DEPDIR) conf/$(DEPDIR) des/$(DEPDIR) dh/$(DEPDIR) dsa/$(DEPDIR) dso/$(DEPDIR) ec/$(DEPDIR) ecdh/$(DEPDIR) ecdsa/$(DEPDIR) engine/$(DEPDIR) err/$(DEPDIR) evp/$(DEPDIR) hmac/$(DEPDIR) idea/$(DEPDIR) krb5/$(DEPDIR) lhash/$(DEPDIR) md4/$(DEPDIR) md5/$(DEPDIR) mdc2/$(DEPDIR) modes/$(DEPDIR) objects/$(DEPDIR) ocsp/$(DEPDIR) pem/$(DEPDIR) pkcs12/$(DEPDIR) pkcs7/$(DEPDIR) poly1305/$(DEPDIR) rand/$(DEPDIR) rc2/$(DEPDIR) rc4/$(DEPDIR) ripemd/$(DEPDIR) rsa/$(DEPDIR) sha/$(DEPDIR) stack/$(DEPDIR) ts/$(DEPDIR) txt_db/$(DEPDIR) ui/$(DEPDIR) whrlpool/$(DEPDIR) x509/$(DEPDIR) x509v3/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) aes/$(DEPDIR) asn1/$(DEPDIR) bf/$(DEPDIR) bio/$(DEPDIR) bn/$(DEPDIR) buffer/$(DEPDIR) cast/$(DEPDIR) chacha/$(DEPDIR) cmac/$(DEPDIR) comp/$(DEPDIR) compat/$(DEPDIR) conf/$(DEPDIR) des/$(DEPDIR) dh/$(DEPDIR) dsa/$(DEPDIR) dso/$(DEPDIR) ec/$(DEPDIR) ecdh/$(DEPDIR) ecdsa/$(DEPDIR) engine/$(DEPDIR) err/$(DEPDIR) evp/$(DEPDIR) hmac/$(DEPDIR) idea/$(DEPDIR) krb5/$(DEPDIR) lhash/$(DEPDIR) md4/$(DEPDIR) md5/$(DEPDIR) mdc2/$(DEPDIR) modes/$(DEPDIR) objects/$(DEPDIR) ocsp/$(DEPDIR) pem/$(DEPDIR) pkcs12/$(DEPDIR) pkcs7/$(DEPDIR) poly1305/$(DEPDIR) rand/$(DEPDIR) rc2/$(DEPDIR) rc4/$(DEPDIR) ripemd/$(DEPDIR) rsa/$(DEPDIR) sha/$(DEPDIR) speck/$(DEPDIR) stack/$(DEPDIR) ts/$(DEPDIR) txt_db/$(DEPDIR) ui/$(DEPDIR) whrlpool/$(DEPDIR) x509/$(DEPDIR) x509v3/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -7042,7 +7086,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ./$(DEPDIR) aes/$(DEPDIR) asn1/$(DEPDIR) bf/$(DEPDIR) bio/$(DEPDIR) bn/$(DEPDIR) buffer/$(DEPDIR) cast/$(DEPDIR) chacha/$(DEPDIR) cmac/$(DEPDIR) comp/$(DEPDIR) compat/$(DEPDIR) conf/$(DEPDIR) des/$(DEPDIR) dh/$(DEPDIR) dsa/$(DEPDIR) dso/$(DEPDIR) ec/$(DEPDIR) ecdh/$(DEPDIR) ecdsa/$(DEPDIR) engine/$(DEPDIR) err/$(DEPDIR) evp/$(DEPDIR) hmac/$(DEPDIR) idea/$(DEPDIR) krb5/$(DEPDIR) lhash/$(DEPDIR) md4/$(DEPDIR) md5/$(DEPDIR) mdc2/$(DEPDIR) modes/$(DEPDIR) objects/$(DEPDIR) ocsp/$(DEPDIR) pem/$(DEPDIR) pkcs12/$(DEPDIR) pkcs7/$(DEPDIR) poly1305/$(DEPDIR) rand/$(DEPDIR) rc2/$(DEPDIR) rc4/$(DEPDIR) ripemd/$(DEPDIR) rsa/$(DEPDIR) sha/$(DEPDIR) stack/$(DEPDIR) ts/$(DEPDIR) txt_db/$(DEPDIR) ui/$(DEPDIR) whrlpool/$(DEPDIR) x509/$(DEPDIR) x509v3/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) aes/$(DEPDIR) asn1/$(DEPDIR) bf/$(DEPDIR) bio/$(DEPDIR) bn/$(DEPDIR) buffer/$(DEPDIR) cast/$(DEPDIR) chacha/$(DEPDIR) cmac/$(DEPDIR) comp/$(DEPDIR) compat/$(DEPDIR) conf/$(DEPDIR) des/$(DEPDIR) dh/$(DEPDIR) dsa/$(DEPDIR) dso/$(DEPDIR) ec/$(DEPDIR) ecdh/$(DEPDIR) ecdsa/$(DEPDIR) engine/$(DEPDIR) err/$(DEPDIR) evp/$(DEPDIR) hmac/$(DEPDIR) idea/$(DEPDIR) krb5/$(DEPDIR) lhash/$(DEPDIR) md4/$(DEPDIR) md5/$(DEPDIR) mdc2/$(DEPDIR) modes/$(DEPDIR) objects/$(DEPDIR) ocsp/$(DEPDIR) pem/$(DEPDIR) pkcs12/$(DEPDIR) pkcs7/$(DEPDIR) poly1305/$(DEPDIR) rand/$(DEPDIR) rc2/$(DEPDIR) rc4/$(DEPDIR) ripemd/$(DEPDIR) rsa/$(DEPDIR) sha/$(DEPDIR) speck/$(DEPDIR) stack/$(DEPDIR) ts/$(DEPDIR) txt_db/$(DEPDIR) ui/$(DEPDIR) whrlpool/$(DEPDIR) x509/$(DEPDIR) x509v3/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

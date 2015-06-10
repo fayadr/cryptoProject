@@ -11,10 +11,7 @@
 # endif
 #endif
 #include <assert.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
 #include <openssl/speck.h>
 
 #define _lrotr(x,n,w) (((x) >> (n)) | ((x) << (w-(n))))
@@ -29,7 +26,7 @@
     u8 t;
 };
  */
-void SPECK_set_encrypt_key(const unsigned char *userKey, const int bits, SPECK_KEY *key){
+int SPECK_set_encrypt_key(const unsigned char *userKey, const int bits, SPECK_KEY *key){
         u8 alpha = 8, beta = 3;
         if (!userKey || !key)
                 return -1;
@@ -37,7 +34,7 @@ void SPECK_set_encrypt_key(const unsigned char *userKey, const int bits, SPECK_K
                 return -2;
 //        rk = key->rd_key;
 
-        switch (key_size) {
+        switch (bits) {
             case 128:
                 key->m = 2;
                 key->t = 32;
@@ -66,9 +63,10 @@ void SPECK_set_encrypt_key(const unsigned char *userKey, const int bits, SPECK_K
         //-----Expanding key-----
         u8 i;
         for(i=0;i<(key->t)-1;i++){
-            (key->l)[i+m-1] = ((key->k)[i] + _lrotr((key->l)[i],alpha,64))^i;
-            (key->k)[i+1] = (key->l)[i+m-1] ^ _lrotl((key->k)[i],beta,64);
+            (key->l)[i+(key->m)-1] = ((key->k)[i] + _lrotr((key->l)[i],alpha,64))^i;
+            (key->k)[i+1] = (key->l)[i+(key->m)-1] ^ _lrotl((key->k)[i],beta,64);
         }
+        return 0;
 }
 
 /*
@@ -88,7 +86,7 @@ void SPECK_encrypt(const unsigned char *in, unsigned char *out, const SPECK_KEY 
     //------Encrypting-------
     ct[0] = pt[0];
     ct[1] = pt[1];
-    for(i=0; i<T; i++){
+    for(i=0; i<(key->t); i++){
         ct[0] = (_lrotr(ct[0],alpha,64) + ct[1]) ^ ((key->k)[i]);
         ct[1] = _lrotl(ct[1],beta,64) ^ ct[0];
     }
@@ -96,6 +94,10 @@ void SPECK_encrypt(const unsigned char *in, unsigned char *out, const SPECK_KEY 
     //------Transforming output------
     PUTU64(out,pt[0]);
     PUTU64(out + 8, pt[1]);   
+}
+
+
+void SPECK_decrypt(const unsigned char *in, unsigned char *out, const SPECK_KEY *key){
 }
 
 /*

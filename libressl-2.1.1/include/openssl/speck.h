@@ -27,7 +27,8 @@
 #include <stdint.h>
 
 #define SPECK_BLOCK_SIZE 16 //Size in bytes
-
+#define SPECK_ENCRYPT     1
+#define SPECK_DECRYPT     0
 
 //Pris d'AES_LOCL
 #define GETU64(pt) (((u64)(pt)[0] << 56) ^ ((u64)(pt)[1] << 48) ^ ((u64)(pt)[2] <<  40) ^ ((u64)(pt)[3] << 32) ^ ((u64)(pt)[4] << 24) ^ ((u64)(pt)[5] << 16) ^ ((u64)(pt)[6] << 8) ^ ((u64)(pt)[7]))
@@ -75,14 +76,16 @@ struct speck_key_st {
 typedef struct speck_key_st SPECK_KEY;
 
 /*--------Fonctions en vue d'intégration pour ressemblance AES------------*/
-void SPECK_set_encrypt_key(const unsigned char *userKey, const int bits, SPECK_KEY *key);
-void SPECK_encrypt(const unsigned char *in, unsigned char *out, const AES_KEY *key);
-
+int SPECK_set_encrypt_key(const unsigned char *userKey, const int bits, SPECK_KEY *key);
+int SPECK_set_decrypt_key(const unsigned char *userKey, const int bits, SPECK_KEY *key);
+void SPECK_encrypt(const unsigned char *in, unsigned char *out, const SPECK_KEY *key);
+void SPECK_cbc_encrypt(const unsigned char *in, unsigned char *out,
+    size_t length, const SPECK_KEY *key, unsigned char *ivec, const int enc);
 //Not yet implemented
-//void SPECK_decrypt(const unsigned char *in, unsigned char *out, const AES_KEY *key);
+void SPECK_decrypt(const unsigned char *in, unsigned char *out, const SPECK_KEY *key);
 
 
 #ifdef  __cplusplus
 }
 #endif
-
+#endif

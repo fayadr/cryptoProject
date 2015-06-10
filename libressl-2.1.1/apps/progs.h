@@ -156,11 +156,6 @@ FUNCTION functions[] = {
 	{ FUNC_TYPE_CIPHER, "aes-256-cbc", enc_main },
 	{ FUNC_TYPE_CIPHER, "aes-256-ecb", enc_main },
 #endif
-#ifndef OPENSSL_NO_SPECK
-        { FUNC_TYPE_CIPHER, "aes-128-cbc", enc_main },
-        { FUNC_TYPE_CIPHER, "aes-192-cbc", enc_main },
-        { FUNC_TYPE_CIPHER, "aes-256-cbc", enc_main },
-#endif
 #ifndef OPENSSL_NO_BF
 	{ FUNC_TYPE_CIPHER, "bf", enc_main },
 	{ FUNC_TYPE_CIPHER, "bf-cbc", enc_main },
@@ -230,6 +225,11 @@ FUNCTION functions[] = {
 	{ FUNC_TYPE_CIPHER, "rc5-ecb", enc_main },
 	{ FUNC_TYPE_CIPHER, "rc5-cfb", enc_main },
 	{ FUNC_TYPE_CIPHER, "rc5-ofb", enc_main },
+#endif
+#ifndef OPENSSL_NO_SPECK
+        { FUNC_TYPE_CIPHER, "speck-128-cbc", enc_main },
+        { FUNC_TYPE_CIPHER, "speck-192-cbc", enc_main },
+        { FUNC_TYPE_CIPHER, "speck-256-cbc", enc_main },
 #endif
 #ifdef ZLIB
 	{ FUNC_TYPE_CIPHER, "zlib", enc_main },

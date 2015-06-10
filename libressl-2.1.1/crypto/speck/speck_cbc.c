@@ -3,7 +3,7 @@
 
 void
 SPECK_cbc_encrypt(const unsigned char *in, unsigned char *out,
-    size_t len, const SPECK *key, unsigned char *ivec, const int enc)
+    size_t len, const SPECK_KEY *key, unsigned char *ivec, const int enc)
 {
         if (enc)
                 CRYPTO_cbc128_encrypt(in, out, len, key, ivec,

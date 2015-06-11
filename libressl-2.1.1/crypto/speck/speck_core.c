@@ -69,6 +69,11 @@ int SPECK_set_encrypt_key(const unsigned char *userKey, const int bits, SPECK_KE
         return 0;
 }
 
+
+int SPECK_set_decrypt_key(const unsigned char *userKey, const int bits, SPECK_KEY *key){
+    return 0;
+}
+
 /*
  * Encrypt a single block
  * in and out can overlap

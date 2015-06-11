@@ -1,7 +1,9 @@
+#include <assert.h>
+#include <string.h>
+
 #include <openssl/opensslconf.h>
 
 #ifndef OPENSSL_NO_SPECK
-
 #include <openssl/speck.h>
 #include <openssl/err.h>
 #include <openssl/evp.h>
@@ -24,7 +26,6 @@ typedef struct {
     cbc128_f cbc;
 } EVP_SPECK_KEY;
 
-//EVP_speck_128_cbc()
 
 static int
 speck_init_key(EVP_CIPHER_CTX *ctx, const unsigned char *key,
@@ -34,9 +35,6 @@ speck_cbc_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
                  const unsigned char *in, size_t len);
 
 
-// BLOCK_CIPHER_generic_pack(NID_aes, 128, EVP_CIPH_FLAG_FIPS)
-//BLOCK_CIPHER_generic_pack(NID_aes, 192, EVP_CIPH_FLAG_FIPS)
-//BLOCK_CIPHER_generic_pack(NID_aes, 256, EVP_CIPH_FLAG_FIPS)
 
 static const EVP_CIPHER speck_128_cbc = {                       
     .nid = NID_speck_128_cbc,                                  
@@ -70,6 +68,24 @@ static const EVP_CIPHER speck_256_cbc = {
     .do_cipher = speck_cbc_cipher,                               
     .ctx_size = sizeof(EVP_SPECK_KEY)                                 
 };
+
+const  EVP_CIPHER*
+EVP_speck_128_cbc(void)
+{
+        return (&speck_128_cbc);
+}
+
+const  EVP_CIPHER*
+EVP_speck_192_cbc(void)
+{
+        return (&speck_192_cbc);
+}
+
+const  EVP_CIPHER*
+EVP_speck_256_cbc(void)
+{
+        return (&speck_256_cbc);
+}
 
 static int
 speck_init_key(EVP_CIPHER_CTX *ctx, const unsigned char *key,

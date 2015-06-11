@@ -155,6 +155,12 @@ OpenSSL_add_all_ciphers(void)
 	EVP_add_cipher_alias(SN_rc5_cbc, "rc5");
 	EVP_add_cipher_alias(SN_rc5_cbc, "RC5");
 #endif
+        
+#ifndef OPENSSL_NO_SPECK
+        EVP_add_cipher(EVP_speck_128_cbc());
+        EVP_add_cipher(EVP_speck_192_cbc());
+        EVP_add_cipher(EVP_speck_256_cbc());
+#endif
 
 #ifndef OPENSSL_NO_AES
 	EVP_add_cipher(EVP_aes_128_ecb());
@@ -195,11 +201,7 @@ OpenSSL_add_all_ciphers(void)
 #endif
 #endif
         
-#ifndef OPENSSL_NO_SPECK
-        EVP_add_cipher(EVP_speck_128_cbc());
-        EVP_add_cipher(EVP_speck_192_cbc());
-        EVP_add_cipher(EVP_speck_256_cbc());
-#endif
+
 
 #ifndef OPENSSL_NO_CAMELLIA
 	EVP_add_cipher(EVP_camellia_128_ecb());

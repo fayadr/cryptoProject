@@ -198,126 +198,128 @@ am_libcrypto_la_OBJECTS = libcrypto_la-cpt_err.lo \
 	aes/libcrypto_la-aes_ctr.lo aes/libcrypto_la-aes_ecb.lo \
 	aes/libcrypto_la-aes_ige.lo aes/libcrypto_la-aes_misc.lo \
 	aes/libcrypto_la-aes_ofb.lo aes/libcrypto_la-aes_wrap.lo \
-	asn1/libcrypto_la-a_bitstr.lo asn1/libcrypto_la-a_bool.lo \
-	asn1/libcrypto_la-a_bytes.lo asn1/libcrypto_la-a_d2i_fp.lo \
-	asn1/libcrypto_la-a_digest.lo asn1/libcrypto_la-a_dup.lo \
-	asn1/libcrypto_la-a_enum.lo asn1/libcrypto_la-a_gentm.lo \
-	asn1/libcrypto_la-a_i2d_fp.lo asn1/libcrypto_la-a_int.lo \
-	asn1/libcrypto_la-a_mbstr.lo asn1/libcrypto_la-a_object.lo \
-	asn1/libcrypto_la-a_octet.lo asn1/libcrypto_la-a_print.lo \
-	asn1/libcrypto_la-a_set.lo asn1/libcrypto_la-a_sign.lo \
-	asn1/libcrypto_la-a_strex.lo asn1/libcrypto_la-a_strnid.lo \
-	asn1/libcrypto_la-a_time.lo asn1/libcrypto_la-a_type.lo \
-	asn1/libcrypto_la-a_utctm.lo asn1/libcrypto_la-a_utf8.lo \
-	asn1/libcrypto_la-a_verify.lo asn1/libcrypto_la-ameth_lib.lo \
-	asn1/libcrypto_la-asn1_err.lo asn1/libcrypto_la-asn1_gen.lo \
-	asn1/libcrypto_la-asn1_lib.lo asn1/libcrypto_la-asn1_par.lo \
-	asn1/libcrypto_la-asn_mime.lo asn1/libcrypto_la-asn_moid.lo \
-	asn1/libcrypto_la-asn_pack.lo asn1/libcrypto_la-bio_asn1.lo \
-	asn1/libcrypto_la-bio_ndef.lo asn1/libcrypto_la-d2i_pr.lo \
-	asn1/libcrypto_la-d2i_pu.lo asn1/libcrypto_la-evp_asn1.lo \
-	asn1/libcrypto_la-f_enum.lo asn1/libcrypto_la-f_int.lo \
-	asn1/libcrypto_la-f_string.lo asn1/libcrypto_la-i2d_pr.lo \
-	asn1/libcrypto_la-i2d_pu.lo asn1/libcrypto_la-n_pkey.lo \
-	asn1/libcrypto_la-nsseq.lo asn1/libcrypto_la-p5_pbe.lo \
-	asn1/libcrypto_la-p5_pbev2.lo asn1/libcrypto_la-p8_pkey.lo \
-	asn1/libcrypto_la-t_bitst.lo asn1/libcrypto_la-t_crl.lo \
-	asn1/libcrypto_la-t_pkey.lo asn1/libcrypto_la-t_req.lo \
-	asn1/libcrypto_la-t_spki.lo asn1/libcrypto_la-t_x509.lo \
-	asn1/libcrypto_la-t_x509a.lo asn1/libcrypto_la-tasn_dec.lo \
-	asn1/libcrypto_la-tasn_enc.lo asn1/libcrypto_la-tasn_fre.lo \
-	asn1/libcrypto_la-tasn_new.lo asn1/libcrypto_la-tasn_prn.lo \
-	asn1/libcrypto_la-tasn_typ.lo asn1/libcrypto_la-tasn_utl.lo \
-	asn1/libcrypto_la-x_algor.lo asn1/libcrypto_la-x_attrib.lo \
-	asn1/libcrypto_la-x_bignum.lo asn1/libcrypto_la-x_crl.lo \
-	asn1/libcrypto_la-x_exten.lo asn1/libcrypto_la-x_info.lo \
-	asn1/libcrypto_la-x_long.lo asn1/libcrypto_la-x_name.lo \
-	asn1/libcrypto_la-x_nx509.lo asn1/libcrypto_la-x_pkey.lo \
-	asn1/libcrypto_la-x_pubkey.lo asn1/libcrypto_la-x_req.lo \
-	asn1/libcrypto_la-x_sig.lo asn1/libcrypto_la-x_spki.lo \
-	asn1/libcrypto_la-x_val.lo asn1/libcrypto_la-x_x509.lo \
-	asn1/libcrypto_la-x_x509a.lo bf/libcrypto_la-bf_cfb64.lo \
-	bf/libcrypto_la-bf_ecb.lo bf/libcrypto_la-bf_enc.lo \
-	bf/libcrypto_la-bf_ofb64.lo bf/libcrypto_la-bf_skey.lo \
-	bio/libcrypto_la-b_dump.lo bio/libcrypto_la-b_print.lo \
-	bio/libcrypto_la-b_sock.lo bio/libcrypto_la-bf_buff.lo \
-	bio/libcrypto_la-bf_nbio.lo bio/libcrypto_la-bf_null.lo \
-	bio/libcrypto_la-bio_cb.lo bio/libcrypto_la-bio_err.lo \
-	bio/libcrypto_la-bio_lib.lo bio/libcrypto_la-bss_acpt.lo \
-	bio/libcrypto_la-bss_bio.lo bio/libcrypto_la-bss_conn.lo \
-	bio/libcrypto_la-bss_dgram.lo bio/libcrypto_la-bss_fd.lo \
-	bio/libcrypto_la-bss_file.lo bio/libcrypto_la-bss_log.lo \
-	bio/libcrypto_la-bss_mem.lo bio/libcrypto_la-bss_null.lo \
-	bio/libcrypto_la-bss_sock.lo bn/libcrypto_la-bn_add.lo \
-	bn/libcrypto_la-bn_asm.lo bn/libcrypto_la-bn_blind.lo \
-	bn/libcrypto_la-bn_const.lo bn/libcrypto_la-bn_ctx.lo \
-	bn/libcrypto_la-bn_depr.lo bn/libcrypto_la-bn_div.lo \
-	bn/libcrypto_la-bn_err.lo bn/libcrypto_la-bn_exp.lo \
-	bn/libcrypto_la-bn_exp2.lo bn/libcrypto_la-bn_gcd.lo \
-	bn/libcrypto_la-bn_gf2m.lo bn/libcrypto_la-bn_kron.lo \
-	bn/libcrypto_la-bn_lib.lo bn/libcrypto_la-bn_mod.lo \
-	bn/libcrypto_la-bn_mont.lo bn/libcrypto_la-bn_mpi.lo \
-	bn/libcrypto_la-bn_mul.lo bn/libcrypto_la-bn_nist.lo \
-	bn/libcrypto_la-bn_prime.lo bn/libcrypto_la-bn_print.lo \
-	bn/libcrypto_la-bn_rand.lo bn/libcrypto_la-bn_recp.lo \
-	bn/libcrypto_la-bn_shift.lo bn/libcrypto_la-bn_sqr.lo \
-	bn/libcrypto_la-bn_sqrt.lo bn/libcrypto_la-bn_word.lo \
-	bn/libcrypto_la-bn_x931p.lo buffer/libcrypto_la-buf_err.lo \
-	buffer/libcrypto_la-buf_str.lo buffer/libcrypto_la-buffer.lo \
-	cast/libcrypto_la-c_cfb64.lo cast/libcrypto_la-c_ecb.lo \
-	cast/libcrypto_la-c_enc.lo cast/libcrypto_la-c_ofb64.lo \
-	cast/libcrypto_la-c_skey.lo chacha/libcrypto_la-chacha.lo \
-	cmac/libcrypto_la-cm_ameth.lo cmac/libcrypto_la-cm_pmeth.lo \
-	cmac/libcrypto_la-cmac.lo comp/libcrypto_la-c_rle.lo \
-	comp/libcrypto_la-c_zlib.lo comp/libcrypto_la-comp_err.lo \
-	comp/libcrypto_la-comp_lib.lo conf/libcrypto_la-conf_api.lo \
-	conf/libcrypto_la-conf_def.lo conf/libcrypto_la-conf_err.lo \
-	conf/libcrypto_la-conf_lib.lo conf/libcrypto_la-conf_mall.lo \
-	conf/libcrypto_la-conf_mod.lo conf/libcrypto_la-conf_sap.lo \
-	des/libcrypto_la-cbc_cksm.lo des/libcrypto_la-cbc_enc.lo \
-	des/libcrypto_la-cfb64ede.lo des/libcrypto_la-cfb64enc.lo \
-	des/libcrypto_la-cfb_enc.lo des/libcrypto_la-des_enc.lo \
-	des/libcrypto_la-ecb3_enc.lo des/libcrypto_la-ecb_enc.lo \
-	des/libcrypto_la-ede_cbcm_enc.lo des/libcrypto_la-enc_read.lo \
-	des/libcrypto_la-enc_writ.lo des/libcrypto_la-fcrypt.lo \
-	des/libcrypto_la-fcrypt_b.lo des/libcrypto_la-ofb64ede.lo \
-	des/libcrypto_la-ofb64enc.lo des/libcrypto_la-ofb_enc.lo \
-	des/libcrypto_la-pcbc_enc.lo des/libcrypto_la-qud_cksm.lo \
-	des/libcrypto_la-rand_key.lo des/libcrypto_la-set_key.lo \
-	des/libcrypto_la-str2key.lo des/libcrypto_la-xcbc_enc.lo \
-	dh/libcrypto_la-dh_ameth.lo dh/libcrypto_la-dh_asn1.lo \
-	dh/libcrypto_la-dh_check.lo dh/libcrypto_la-dh_depr.lo \
-	dh/libcrypto_la-dh_err.lo dh/libcrypto_la-dh_gen.lo \
-	dh/libcrypto_la-dh_key.lo dh/libcrypto_la-dh_lib.lo \
-	dh/libcrypto_la-dh_pmeth.lo dh/libcrypto_la-dh_prn.lo \
-	dsa/libcrypto_la-dsa_ameth.lo dsa/libcrypto_la-dsa_asn1.lo \
-	dsa/libcrypto_la-dsa_depr.lo dsa/libcrypto_la-dsa_err.lo \
-	dsa/libcrypto_la-dsa_gen.lo dsa/libcrypto_la-dsa_key.lo \
-	dsa/libcrypto_la-dsa_lib.lo dsa/libcrypto_la-dsa_ossl.lo \
-	dsa/libcrypto_la-dsa_pmeth.lo dsa/libcrypto_la-dsa_prn.lo \
-	dsa/libcrypto_la-dsa_sign.lo dsa/libcrypto_la-dsa_vrf.lo \
-	dso/libcrypto_la-dso_dlfcn.lo dso/libcrypto_la-dso_err.lo \
-	dso/libcrypto_la-dso_lib.lo dso/libcrypto_la-dso_null.lo \
-	dso/libcrypto_la-dso_openssl.lo ec/libcrypto_la-ec2_mult.lo \
-	ec/libcrypto_la-ec2_oct.lo ec/libcrypto_la-ec2_smpl.lo \
-	ec/libcrypto_la-ec_ameth.lo ec/libcrypto_la-ec_asn1.lo \
-	ec/libcrypto_la-ec_check.lo ec/libcrypto_la-ec_curve.lo \
-	ec/libcrypto_la-ec_cvt.lo ec/libcrypto_la-ec_err.lo \
-	ec/libcrypto_la-ec_key.lo ec/libcrypto_la-ec_lib.lo \
-	ec/libcrypto_la-ec_mult.lo ec/libcrypto_la-ec_oct.lo \
-	ec/libcrypto_la-ec_pmeth.lo ec/libcrypto_la-ec_print.lo \
-	ec/libcrypto_la-eck_prn.lo ec/libcrypto_la-ecp_mont.lo \
-	ec/libcrypto_la-ecp_nist.lo ec/libcrypto_la-ecp_oct.lo \
-	ec/libcrypto_la-ecp_smpl.lo ecdh/libcrypto_la-ech_err.lo \
-	ecdh/libcrypto_la-ech_key.lo ecdh/libcrypto_la-ech_lib.lo \
-	ecdh/libcrypto_la-ech_ossl.lo ecdsa/libcrypto_la-ecs_asn1.lo \
-	ecdsa/libcrypto_la-ecs_err.lo ecdsa/libcrypto_la-ecs_lib.lo \
-	ecdsa/libcrypto_la-ecs_ossl.lo ecdsa/libcrypto_la-ecs_sign.lo \
-	ecdsa/libcrypto_la-ecs_vrf.lo engine/libcrypto_la-eng_all.lo \
-	engine/libcrypto_la-eng_cnf.lo engine/libcrypto_la-eng_ctrl.lo \
-	engine/libcrypto_la-eng_dyn.lo engine/libcrypto_la-eng_err.lo \
-	engine/libcrypto_la-eng_fat.lo engine/libcrypto_la-eng_init.lo \
-	engine/libcrypto_la-eng_lib.lo engine/libcrypto_la-eng_list.lo \
+	speck/libcrypto_la-speck_core.lo \
+	speck/libcrypto_la-speck_cbc.lo asn1/libcrypto_la-a_bitstr.lo \
+	asn1/libcrypto_la-a_bool.lo asn1/libcrypto_la-a_bytes.lo \
+	asn1/libcrypto_la-a_d2i_fp.lo asn1/libcrypto_la-a_digest.lo \
+	asn1/libcrypto_la-a_dup.lo asn1/libcrypto_la-a_enum.lo \
+	asn1/libcrypto_la-a_gentm.lo asn1/libcrypto_la-a_i2d_fp.lo \
+	asn1/libcrypto_la-a_int.lo asn1/libcrypto_la-a_mbstr.lo \
+	asn1/libcrypto_la-a_object.lo asn1/libcrypto_la-a_octet.lo \
+	asn1/libcrypto_la-a_print.lo asn1/libcrypto_la-a_set.lo \
+	asn1/libcrypto_la-a_sign.lo asn1/libcrypto_la-a_strex.lo \
+	asn1/libcrypto_la-a_strnid.lo asn1/libcrypto_la-a_time.lo \
+	asn1/libcrypto_la-a_type.lo asn1/libcrypto_la-a_utctm.lo \
+	asn1/libcrypto_la-a_utf8.lo asn1/libcrypto_la-a_verify.lo \
+	asn1/libcrypto_la-ameth_lib.lo asn1/libcrypto_la-asn1_err.lo \
+	asn1/libcrypto_la-asn1_gen.lo asn1/libcrypto_la-asn1_lib.lo \
+	asn1/libcrypto_la-asn1_par.lo asn1/libcrypto_la-asn_mime.lo \
+	asn1/libcrypto_la-asn_moid.lo asn1/libcrypto_la-asn_pack.lo \
+	asn1/libcrypto_la-bio_asn1.lo asn1/libcrypto_la-bio_ndef.lo \
+	asn1/libcrypto_la-d2i_pr.lo asn1/libcrypto_la-d2i_pu.lo \
+	asn1/libcrypto_la-evp_asn1.lo asn1/libcrypto_la-f_enum.lo \
+	asn1/libcrypto_la-f_int.lo asn1/libcrypto_la-f_string.lo \
+	asn1/libcrypto_la-i2d_pr.lo asn1/libcrypto_la-i2d_pu.lo \
+	asn1/libcrypto_la-n_pkey.lo asn1/libcrypto_la-nsseq.lo \
+	asn1/libcrypto_la-p5_pbe.lo asn1/libcrypto_la-p5_pbev2.lo \
+	asn1/libcrypto_la-p8_pkey.lo asn1/libcrypto_la-t_bitst.lo \
+	asn1/libcrypto_la-t_crl.lo asn1/libcrypto_la-t_pkey.lo \
+	asn1/libcrypto_la-t_req.lo asn1/libcrypto_la-t_spki.lo \
+	asn1/libcrypto_la-t_x509.lo asn1/libcrypto_la-t_x509a.lo \
+	asn1/libcrypto_la-tasn_dec.lo asn1/libcrypto_la-tasn_enc.lo \
+	asn1/libcrypto_la-tasn_fre.lo asn1/libcrypto_la-tasn_new.lo \
+	asn1/libcrypto_la-tasn_prn.lo asn1/libcrypto_la-tasn_typ.lo \
+	asn1/libcrypto_la-tasn_utl.lo asn1/libcrypto_la-x_algor.lo \
+	asn1/libcrypto_la-x_attrib.lo asn1/libcrypto_la-x_bignum.lo \
+	asn1/libcrypto_la-x_crl.lo asn1/libcrypto_la-x_exten.lo \
+	asn1/libcrypto_la-x_info.lo asn1/libcrypto_la-x_long.lo \
+	asn1/libcrypto_la-x_name.lo asn1/libcrypto_la-x_nx509.lo \
+	asn1/libcrypto_la-x_pkey.lo asn1/libcrypto_la-x_pubkey.lo \
+	asn1/libcrypto_la-x_req.lo asn1/libcrypto_la-x_sig.lo \
+	asn1/libcrypto_la-x_spki.lo asn1/libcrypto_la-x_val.lo \
+	asn1/libcrypto_la-x_x509.lo asn1/libcrypto_la-x_x509a.lo \
+	bf/libcrypto_la-bf_cfb64.lo bf/libcrypto_la-bf_ecb.lo \
+	bf/libcrypto_la-bf_enc.lo bf/libcrypto_la-bf_ofb64.lo \
+	bf/libcrypto_la-bf_skey.lo bio/libcrypto_la-b_dump.lo \
+	bio/libcrypto_la-b_print.lo bio/libcrypto_la-b_sock.lo \
+	bio/libcrypto_la-bf_buff.lo bio/libcrypto_la-bf_nbio.lo \
+	bio/libcrypto_la-bf_null.lo bio/libcrypto_la-bio_cb.lo \
+	bio/libcrypto_la-bio_err.lo bio/libcrypto_la-bio_lib.lo \
+	bio/libcrypto_la-bss_acpt.lo bio/libcrypto_la-bss_bio.lo \
+	bio/libcrypto_la-bss_conn.lo bio/libcrypto_la-bss_dgram.lo \
+	bio/libcrypto_la-bss_fd.lo bio/libcrypto_la-bss_file.lo \
+	bio/libcrypto_la-bss_log.lo bio/libcrypto_la-bss_mem.lo \
+	bio/libcrypto_la-bss_null.lo bio/libcrypto_la-bss_sock.lo \
+	bn/libcrypto_la-bn_add.lo bn/libcrypto_la-bn_asm.lo \
+	bn/libcrypto_la-bn_blind.lo bn/libcrypto_la-bn_const.lo \
+	bn/libcrypto_la-bn_ctx.lo bn/libcrypto_la-bn_depr.lo \
+	bn/libcrypto_la-bn_div.lo bn/libcrypto_la-bn_err.lo \
+	bn/libcrypto_la-bn_exp.lo bn/libcrypto_la-bn_exp2.lo \
+	bn/libcrypto_la-bn_gcd.lo bn/libcrypto_la-bn_gf2m.lo \
+	bn/libcrypto_la-bn_kron.lo bn/libcrypto_la-bn_lib.lo \
+	bn/libcrypto_la-bn_mod.lo bn/libcrypto_la-bn_mont.lo \
+	bn/libcrypto_la-bn_mpi.lo bn/libcrypto_la-bn_mul.lo \
+	bn/libcrypto_la-bn_nist.lo bn/libcrypto_la-bn_prime.lo \
+	bn/libcrypto_la-bn_print.lo bn/libcrypto_la-bn_rand.lo \
+	bn/libcrypto_la-bn_recp.lo bn/libcrypto_la-bn_shift.lo \
+	bn/libcrypto_la-bn_sqr.lo bn/libcrypto_la-bn_sqrt.lo \
+	bn/libcrypto_la-bn_word.lo bn/libcrypto_la-bn_x931p.lo \
+	buffer/libcrypto_la-buf_err.lo buffer/libcrypto_la-buf_str.lo \
+	buffer/libcrypto_la-buffer.lo cast/libcrypto_la-c_cfb64.lo \
+	cast/libcrypto_la-c_ecb.lo cast/libcrypto_la-c_enc.lo \
+	cast/libcrypto_la-c_ofb64.lo cast/libcrypto_la-c_skey.lo \
+	chacha/libcrypto_la-chacha.lo cmac/libcrypto_la-cm_ameth.lo \
+	cmac/libcrypto_la-cm_pmeth.lo cmac/libcrypto_la-cmac.lo \
+	comp/libcrypto_la-c_rle.lo comp/libcrypto_la-c_zlib.lo \
+	comp/libcrypto_la-comp_err.lo comp/libcrypto_la-comp_lib.lo \
+	conf/libcrypto_la-conf_api.lo conf/libcrypto_la-conf_def.lo \
+	conf/libcrypto_la-conf_err.lo conf/libcrypto_la-conf_lib.lo \
+	conf/libcrypto_la-conf_mall.lo conf/libcrypto_la-conf_mod.lo \
+	conf/libcrypto_la-conf_sap.lo des/libcrypto_la-cbc_cksm.lo \
+	des/libcrypto_la-cbc_enc.lo des/libcrypto_la-cfb64ede.lo \
+	des/libcrypto_la-cfb64enc.lo des/libcrypto_la-cfb_enc.lo \
+	des/libcrypto_la-des_enc.lo des/libcrypto_la-ecb3_enc.lo \
+	des/libcrypto_la-ecb_enc.lo des/libcrypto_la-ede_cbcm_enc.lo \
+	des/libcrypto_la-enc_read.lo des/libcrypto_la-enc_writ.lo \
+	des/libcrypto_la-fcrypt.lo des/libcrypto_la-fcrypt_b.lo \
+	des/libcrypto_la-ofb64ede.lo des/libcrypto_la-ofb64enc.lo \
+	des/libcrypto_la-ofb_enc.lo des/libcrypto_la-pcbc_enc.lo \
+	des/libcrypto_la-qud_cksm.lo des/libcrypto_la-rand_key.lo \
+	des/libcrypto_la-set_key.lo des/libcrypto_la-str2key.lo \
+	des/libcrypto_la-xcbc_enc.lo dh/libcrypto_la-dh_ameth.lo \
+	dh/libcrypto_la-dh_asn1.lo dh/libcrypto_la-dh_check.lo \
+	dh/libcrypto_la-dh_depr.lo dh/libcrypto_la-dh_err.lo \
+	dh/libcrypto_la-dh_gen.lo dh/libcrypto_la-dh_key.lo \
+	dh/libcrypto_la-dh_lib.lo dh/libcrypto_la-dh_pmeth.lo \
+	dh/libcrypto_la-dh_prn.lo dsa/libcrypto_la-dsa_ameth.lo \
+	dsa/libcrypto_la-dsa_asn1.lo dsa/libcrypto_la-dsa_depr.lo \
+	dsa/libcrypto_la-dsa_err.lo dsa/libcrypto_la-dsa_gen.lo \
+	dsa/libcrypto_la-dsa_key.lo dsa/libcrypto_la-dsa_lib.lo \
+	dsa/libcrypto_la-dsa_ossl.lo dsa/libcrypto_la-dsa_pmeth.lo \
+	dsa/libcrypto_la-dsa_prn.lo dsa/libcrypto_la-dsa_sign.lo \
+	dsa/libcrypto_la-dsa_vrf.lo dso/libcrypto_la-dso_dlfcn.lo \
+	dso/libcrypto_la-dso_err.lo dso/libcrypto_la-dso_lib.lo \
+	dso/libcrypto_la-dso_null.lo dso/libcrypto_la-dso_openssl.lo \
+	ec/libcrypto_la-ec2_mult.lo ec/libcrypto_la-ec2_oct.lo \
+	ec/libcrypto_la-ec2_smpl.lo ec/libcrypto_la-ec_ameth.lo \
+	ec/libcrypto_la-ec_asn1.lo ec/libcrypto_la-ec_check.lo \
+	ec/libcrypto_la-ec_curve.lo ec/libcrypto_la-ec_cvt.lo \
+	ec/libcrypto_la-ec_err.lo ec/libcrypto_la-ec_key.lo \
+	ec/libcrypto_la-ec_lib.lo ec/libcrypto_la-ec_mult.lo \
+	ec/libcrypto_la-ec_oct.lo ec/libcrypto_la-ec_pmeth.lo \
+	ec/libcrypto_la-ec_print.lo ec/libcrypto_la-eck_prn.lo \
+	ec/libcrypto_la-ecp_mont.lo ec/libcrypto_la-ecp_nist.lo \
+	ec/libcrypto_la-ecp_oct.lo ec/libcrypto_la-ecp_smpl.lo \
+	ecdh/libcrypto_la-ech_err.lo ecdh/libcrypto_la-ech_key.lo \
+	ecdh/libcrypto_la-ech_lib.lo ecdh/libcrypto_la-ech_ossl.lo \
+	ecdsa/libcrypto_la-ecs_asn1.lo ecdsa/libcrypto_la-ecs_err.lo \
+	ecdsa/libcrypto_la-ecs_lib.lo ecdsa/libcrypto_la-ecs_ossl.lo \
+	ecdsa/libcrypto_la-ecs_sign.lo ecdsa/libcrypto_la-ecs_vrf.lo \
+	engine/libcrypto_la-eng_all.lo engine/libcrypto_la-eng_cnf.lo \
+	engine/libcrypto_la-eng_ctrl.lo engine/libcrypto_la-eng_dyn.lo \
+	engine/libcrypto_la-eng_err.lo engine/libcrypto_la-eng_fat.lo \
+	engine/libcrypto_la-eng_init.lo engine/libcrypto_la-eng_lib.lo \
+	engine/libcrypto_la-eng_list.lo \
 	engine/libcrypto_la-eng_openssl.lo \
 	engine/libcrypto_la-eng_pkey.lo \
 	engine/libcrypto_la-eng_rsax.lo \
@@ -420,8 +422,7 @@ am_libcrypto_la_OBJECTS = libcrypto_la-cpt_err.lo \
 	rsa/libcrypto_la-rsa_x931.lo sha/libcrypto_la-sha1_one.lo \
 	sha/libcrypto_la-sha1dgst.lo sha/libcrypto_la-sha256.lo \
 	sha/libcrypto_la-sha512.lo sha/libcrypto_la-sha_dgst.lo \
-	sha/libcrypto_la-sha_one.lo speck/libcrypto_la-speck_core.lo \
-	speck/libcrypto_la-speck_cbc.lo stack/libcrypto_la-stack.lo \
+	sha/libcrypto_la-sha_one.lo stack/libcrypto_la-stack.lo \
 	ts/libcrypto_la-ts_asn1.lo ts/libcrypto_la-ts_conf.lo \
 	ts/libcrypto_la-ts_err.lo ts/libcrypto_la-ts_lib.lo \
 	ts/libcrypto_la-ts_req_print.lo \
@@ -687,76 +688,76 @@ libcrypto_la_SOURCES = cpt_err.c cryptlib.c cversion.c ex_data.c \
 	malloc-wrapper.c mem_clr.c mem_dbg.c o_init.c o_str.c o_time.c \
 	aes/aes_cbc.c aes/aes_cfb.c aes/aes_core.c aes/aes_ctr.c \
 	aes/aes_ecb.c aes/aes_ige.c aes/aes_misc.c aes/aes_ofb.c \
-	aes/aes_wrap.c asn1/a_bitstr.c asn1/a_bool.c asn1/a_bytes.c \
-	asn1/a_d2i_fp.c asn1/a_digest.c asn1/a_dup.c asn1/a_enum.c \
-	asn1/a_gentm.c asn1/a_i2d_fp.c asn1/a_int.c asn1/a_mbstr.c \
-	asn1/a_object.c asn1/a_octet.c asn1/a_print.c asn1/a_set.c \
-	asn1/a_sign.c asn1/a_strex.c asn1/a_strnid.c asn1/a_time.c \
-	asn1/a_type.c asn1/a_utctm.c asn1/a_utf8.c asn1/a_verify.c \
-	asn1/ameth_lib.c asn1/asn1_err.c asn1/asn1_gen.c \
-	asn1/asn1_lib.c asn1/asn1_par.c asn1/asn_mime.c \
-	asn1/asn_moid.c asn1/asn_pack.c asn1/bio_asn1.c \
-	asn1/bio_ndef.c asn1/d2i_pr.c asn1/d2i_pu.c asn1/evp_asn1.c \
-	asn1/f_enum.c asn1/f_int.c asn1/f_string.c asn1/i2d_pr.c \
-	asn1/i2d_pu.c asn1/n_pkey.c asn1/nsseq.c asn1/p5_pbe.c \
-	asn1/p5_pbev2.c asn1/p8_pkey.c asn1/t_bitst.c asn1/t_crl.c \
-	asn1/t_pkey.c asn1/t_req.c asn1/t_spki.c asn1/t_x509.c \
-	asn1/t_x509a.c asn1/tasn_dec.c asn1/tasn_enc.c asn1/tasn_fre.c \
-	asn1/tasn_new.c asn1/tasn_prn.c asn1/tasn_typ.c \
-	asn1/tasn_utl.c asn1/x_algor.c asn1/x_attrib.c asn1/x_bignum.c \
-	asn1/x_crl.c asn1/x_exten.c asn1/x_info.c asn1/x_long.c \
-	asn1/x_name.c asn1/x_nx509.c asn1/x_pkey.c asn1/x_pubkey.c \
-	asn1/x_req.c asn1/x_sig.c asn1/x_spki.c asn1/x_val.c \
-	asn1/x_x509.c asn1/x_x509a.c bf/bf_cfb64.c bf/bf_ecb.c \
-	bf/bf_enc.c bf/bf_ofb64.c bf/bf_skey.c bio/b_dump.c \
-	bio/b_print.c bio/b_sock.c bio/bf_buff.c bio/bf_nbio.c \
-	bio/bf_null.c bio/bio_cb.c bio/bio_err.c bio/bio_lib.c \
-	bio/bss_acpt.c bio/bss_bio.c bio/bss_conn.c bio/bss_dgram.c \
-	bio/bss_fd.c bio/bss_file.c bio/bss_log.c bio/bss_mem.c \
-	bio/bss_null.c bio/bss_sock.c bn/bn_add.c bn/bn_asm.c \
-	bn/bn_blind.c bn/bn_const.c bn/bn_ctx.c bn/bn_depr.c \
-	bn/bn_div.c bn/bn_err.c bn/bn_exp.c bn/bn_exp2.c bn/bn_gcd.c \
-	bn/bn_gf2m.c bn/bn_kron.c bn/bn_lib.c bn/bn_mod.c bn/bn_mont.c \
-	bn/bn_mpi.c bn/bn_mul.c bn/bn_nist.c bn/bn_prime.c \
-	bn/bn_print.c bn/bn_rand.c bn/bn_recp.c bn/bn_shift.c \
-	bn/bn_sqr.c bn/bn_sqrt.c bn/bn_word.c bn/bn_x931p.c \
-	buffer/buf_err.c buffer/buf_str.c buffer/buffer.c \
-	cast/c_cfb64.c cast/c_ecb.c cast/c_enc.c cast/c_ofb64.c \
-	cast/c_skey.c chacha/chacha.c cmac/cm_ameth.c cmac/cm_pmeth.c \
-	cmac/cmac.c comp/c_rle.c comp/c_zlib.c comp/comp_err.c \
-	comp/comp_lib.c conf/conf_api.c conf/conf_def.c \
-	conf/conf_err.c conf/conf_lib.c conf/conf_mall.c \
-	conf/conf_mod.c conf/conf_sap.c des/cbc_cksm.c des/cbc_enc.c \
-	des/cfb64ede.c des/cfb64enc.c des/cfb_enc.c des/des_enc.c \
-	des/ecb3_enc.c des/ecb_enc.c des/ede_cbcm_enc.c des/enc_read.c \
-	des/enc_writ.c des/fcrypt.c des/fcrypt_b.c des/ofb64ede.c \
-	des/ofb64enc.c des/ofb_enc.c des/pcbc_enc.c des/qud_cksm.c \
-	des/rand_key.c des/set_key.c des/str2key.c des/xcbc_enc.c \
-	dh/dh_ameth.c dh/dh_asn1.c dh/dh_check.c dh/dh_depr.c \
-	dh/dh_err.c dh/dh_gen.c dh/dh_key.c dh/dh_lib.c dh/dh_pmeth.c \
-	dh/dh_prn.c dsa/dsa_ameth.c dsa/dsa_asn1.c dsa/dsa_depr.c \
-	dsa/dsa_err.c dsa/dsa_gen.c dsa/dsa_key.c dsa/dsa_lib.c \
-	dsa/dsa_ossl.c dsa/dsa_pmeth.c dsa/dsa_prn.c dsa/dsa_sign.c \
-	dsa/dsa_vrf.c dso/dso_dlfcn.c dso/dso_err.c dso/dso_lib.c \
-	dso/dso_null.c dso/dso_openssl.c ec/ec2_mult.c ec/ec2_oct.c \
-	ec/ec2_smpl.c ec/ec_ameth.c ec/ec_asn1.c ec/ec_check.c \
-	ec/ec_curve.c ec/ec_cvt.c ec/ec_err.c ec/ec_key.c ec/ec_lib.c \
-	ec/ec_mult.c ec/ec_oct.c ec/ec_pmeth.c ec/ec_print.c \
-	ec/eck_prn.c ec/ecp_mont.c ec/ecp_nist.c ec/ecp_oct.c \
-	ec/ecp_smpl.c ecdh/ech_err.c ecdh/ech_key.c ecdh/ech_lib.c \
-	ecdh/ech_ossl.c ecdsa/ecs_asn1.c ecdsa/ecs_err.c \
-	ecdsa/ecs_lib.c ecdsa/ecs_ossl.c ecdsa/ecs_sign.c \
-	ecdsa/ecs_vrf.c engine/eng_all.c engine/eng_cnf.c \
-	engine/eng_ctrl.c engine/eng_dyn.c engine/eng_err.c \
-	engine/eng_fat.c engine/eng_init.c engine/eng_lib.c \
-	engine/eng_list.c engine/eng_openssl.c engine/eng_pkey.c \
-	engine/eng_rsax.c engine/eng_table.c engine/tb_asnmth.c \
-	engine/tb_cipher.c engine/tb_dh.c engine/tb_digest.c \
-	engine/tb_dsa.c engine/tb_ecdh.c engine/tb_ecdsa.c \
-	engine/tb_pkmeth.c engine/tb_rand.c engine/tb_rsa.c \
-	engine/tb_store.c err/err.c err/err_all.c err/err_prn.c \
-	evp/bio_b64.c evp/bio_enc.c evp/bio_md.c evp/c_all.c \
-	evp/c_allc.c evp/c_alld.c evp/digest.c evp/e_aes.c \
+	aes/aes_wrap.c speck/speck_core.c speck/speck_cbc.c \
+	asn1/a_bitstr.c asn1/a_bool.c asn1/a_bytes.c asn1/a_d2i_fp.c \
+	asn1/a_digest.c asn1/a_dup.c asn1/a_enum.c asn1/a_gentm.c \
+	asn1/a_i2d_fp.c asn1/a_int.c asn1/a_mbstr.c asn1/a_object.c \
+	asn1/a_octet.c asn1/a_print.c asn1/a_set.c asn1/a_sign.c \
+	asn1/a_strex.c asn1/a_strnid.c asn1/a_time.c asn1/a_type.c \
+	asn1/a_utctm.c asn1/a_utf8.c asn1/a_verify.c asn1/ameth_lib.c \
+	asn1/asn1_err.c asn1/asn1_gen.c asn1/asn1_lib.c \
+	asn1/asn1_par.c asn1/asn_mime.c asn1/asn_moid.c \
+	asn1/asn_pack.c asn1/bio_asn1.c asn1/bio_ndef.c asn1/d2i_pr.c \
+	asn1/d2i_pu.c asn1/evp_asn1.c asn1/f_enum.c asn1/f_int.c \
+	asn1/f_string.c asn1/i2d_pr.c asn1/i2d_pu.c asn1/n_pkey.c \
+	asn1/nsseq.c asn1/p5_pbe.c asn1/p5_pbev2.c asn1/p8_pkey.c \
+	asn1/t_bitst.c asn1/t_crl.c asn1/t_pkey.c asn1/t_req.c \
+	asn1/t_spki.c asn1/t_x509.c asn1/t_x509a.c asn1/tasn_dec.c \
+	asn1/tasn_enc.c asn1/tasn_fre.c asn1/tasn_new.c \
+	asn1/tasn_prn.c asn1/tasn_typ.c asn1/tasn_utl.c asn1/x_algor.c \
+	asn1/x_attrib.c asn1/x_bignum.c asn1/x_crl.c asn1/x_exten.c \
+	asn1/x_info.c asn1/x_long.c asn1/x_name.c asn1/x_nx509.c \
+	asn1/x_pkey.c asn1/x_pubkey.c asn1/x_req.c asn1/x_sig.c \
+	asn1/x_spki.c asn1/x_val.c asn1/x_x509.c asn1/x_x509a.c \
+	bf/bf_cfb64.c bf/bf_ecb.c bf/bf_enc.c bf/bf_ofb64.c \
+	bf/bf_skey.c bio/b_dump.c bio/b_print.c bio/b_sock.c \
+	bio/bf_buff.c bio/bf_nbio.c bio/bf_null.c bio/bio_cb.c \
+	bio/bio_err.c bio/bio_lib.c bio/bss_acpt.c bio/bss_bio.c \
+	bio/bss_conn.c bio/bss_dgram.c bio/bss_fd.c bio/bss_file.c \
+	bio/bss_log.c bio/bss_mem.c bio/bss_null.c bio/bss_sock.c \
+	bn/bn_add.c bn/bn_asm.c bn/bn_blind.c bn/bn_const.c \
+	bn/bn_ctx.c bn/bn_depr.c bn/bn_div.c bn/bn_err.c bn/bn_exp.c \
+	bn/bn_exp2.c bn/bn_gcd.c bn/bn_gf2m.c bn/bn_kron.c bn/bn_lib.c \
+	bn/bn_mod.c bn/bn_mont.c bn/bn_mpi.c bn/bn_mul.c bn/bn_nist.c \
+	bn/bn_prime.c bn/bn_print.c bn/bn_rand.c bn/bn_recp.c \
+	bn/bn_shift.c bn/bn_sqr.c bn/bn_sqrt.c bn/bn_word.c \
+	bn/bn_x931p.c buffer/buf_err.c buffer/buf_str.c \
+	buffer/buffer.c cast/c_cfb64.c cast/c_ecb.c cast/c_enc.c \
+	cast/c_ofb64.c cast/c_skey.c chacha/chacha.c cmac/cm_ameth.c \
+	cmac/cm_pmeth.c cmac/cmac.c comp/c_rle.c comp/c_zlib.c \
+	comp/comp_err.c comp/comp_lib.c conf/conf_api.c \
+	conf/conf_def.c conf/conf_err.c conf/conf_lib.c \
+	conf/conf_mall.c conf/conf_mod.c conf/conf_sap.c \
+	des/cbc_cksm.c des/cbc_enc.c des/cfb64ede.c des/cfb64enc.c \
+	des/cfb_enc.c des/des_enc.c des/ecb3_enc.c des/ecb_enc.c \
+	des/ede_cbcm_enc.c des/enc_read.c des/enc_writ.c des/fcrypt.c \
+	des/fcrypt_b.c des/ofb64ede.c des/ofb64enc.c des/ofb_enc.c \
+	des/pcbc_enc.c des/qud_cksm.c des/rand_key.c des/set_key.c \
+	des/str2key.c des/xcbc_enc.c dh/dh_ameth.c dh/dh_asn1.c \
+	dh/dh_check.c dh/dh_depr.c dh/dh_err.c dh/dh_gen.c dh/dh_key.c \
+	dh/dh_lib.c dh/dh_pmeth.c dh/dh_prn.c dsa/dsa_ameth.c \
+	dsa/dsa_asn1.c dsa/dsa_depr.c dsa/dsa_err.c dsa/dsa_gen.c \
+	dsa/dsa_key.c dsa/dsa_lib.c dsa/dsa_ossl.c dsa/dsa_pmeth.c \
+	dsa/dsa_prn.c dsa/dsa_sign.c dsa/dsa_vrf.c dso/dso_dlfcn.c \
+	dso/dso_err.c dso/dso_lib.c dso/dso_null.c dso/dso_openssl.c \
+	ec/ec2_mult.c ec/ec2_oct.c ec/ec2_smpl.c ec/ec_ameth.c \
+	ec/ec_asn1.c ec/ec_check.c ec/ec_curve.c ec/ec_cvt.c \
+	ec/ec_err.c ec/ec_key.c ec/ec_lib.c ec/ec_mult.c ec/ec_oct.c \
+	ec/ec_pmeth.c ec/ec_print.c ec/eck_prn.c ec/ecp_mont.c \
+	ec/ecp_nist.c ec/ecp_oct.c ec/ecp_smpl.c ecdh/ech_err.c \
+	ecdh/ech_key.c ecdh/ech_lib.c ecdh/ech_ossl.c ecdsa/ecs_asn1.c \
+	ecdsa/ecs_err.c ecdsa/ecs_lib.c ecdsa/ecs_ossl.c \
+	ecdsa/ecs_sign.c ecdsa/ecs_vrf.c engine/eng_all.c \
+	engine/eng_cnf.c engine/eng_ctrl.c engine/eng_dyn.c \
+	engine/eng_err.c engine/eng_fat.c engine/eng_init.c \
+	engine/eng_lib.c engine/eng_list.c engine/eng_openssl.c \
+	engine/eng_pkey.c engine/eng_rsax.c engine/eng_table.c \
+	engine/tb_asnmth.c engine/tb_cipher.c engine/tb_dh.c \
+	engine/tb_digest.c engine/tb_dsa.c engine/tb_ecdh.c \
+	engine/tb_ecdsa.c engine/tb_pkmeth.c engine/tb_rand.c \
+	engine/tb_rsa.c engine/tb_store.c err/err.c err/err_all.c \
+	err/err_prn.c evp/bio_b64.c evp/bio_enc.c evp/bio_md.c \
+	evp/c_all.c evp/c_allc.c evp/c_alld.c evp/digest.c evp/e_aes.c \
 	evp/e_speck.c evp/e_aes_cbc_hmac_sha1.c evp/e_bf.c \
 	evp/e_cast.c evp/e_chacha.c evp/e_chacha20poly1305.c \
 	evp/e_des.c evp/e_des3.c evp/e_idea.c evp/e_null.c evp/e_old.c \
@@ -800,31 +801,30 @@ libcrypto_la_SOURCES = cpt_err.c cryptlib.c cversion.c ex_data.c \
 	rsa/rsa_prn.c rsa/rsa_pss.c rsa/rsa_saos.c rsa/rsa_sign.c \
 	rsa/rsa_ssl.c rsa/rsa_x931.c sha/sha1_one.c sha/sha1dgst.c \
 	sha/sha256.c sha/sha512.c sha/sha_dgst.c sha/sha_one.c \
-	speck/speck_core.c speck/speck_cbc.c stack/stack.c \
-	ts/ts_asn1.c ts/ts_conf.c ts/ts_err.c ts/ts_lib.c \
-	ts/ts_req_print.c ts/ts_req_utils.c ts/ts_rsp_print.c \
-	ts/ts_rsp_sign.c ts/ts_rsp_utils.c ts/ts_rsp_verify.c \
-	ts/ts_verify_ctx.c txt_db/txt_db.c ui/ui_err.c ui/ui_lib.c \
-	ui/ui_openssl.c ui/ui_util.c whrlpool/wp_block.c \
-	whrlpool/wp_dgst.c x509/by_dir.c x509/by_file.c \
-	x509/x509_att.c x509/x509_cmp.c x509/x509_d2.c x509/x509_def.c \
-	x509/x509_err.c x509/x509_ext.c x509/x509_lu.c x509/x509_obj.c \
-	x509/x509_r2x.c x509/x509_req.c x509/x509_set.c \
-	x509/x509_trs.c x509/x509_txt.c x509/x509_v3.c x509/x509_vfy.c \
-	x509/x509_vpm.c x509/x509cset.c x509/x509name.c \
-	x509/x509rset.c x509/x509spki.c x509/x509type.c x509/x_all.c \
-	x509v3/pcy_cache.c x509v3/pcy_data.c x509v3/pcy_lib.c \
-	x509v3/pcy_map.c x509v3/pcy_node.c x509v3/pcy_tree.c \
-	x509v3/v3_akey.c x509v3/v3_akeya.c x509v3/v3_alt.c \
-	x509v3/v3_bcons.c x509v3/v3_bitst.c x509v3/v3_conf.c \
-	x509v3/v3_cpols.c x509v3/v3_crld.c x509v3/v3_enum.c \
-	x509v3/v3_extku.c x509v3/v3_genn.c x509v3/v3_ia5.c \
-	x509v3/v3_info.c x509v3/v3_int.c x509v3/v3_lib.c \
-	x509v3/v3_ncons.c x509v3/v3_ocsp.c x509v3/v3_pci.c \
-	x509v3/v3_pcia.c x509v3/v3_pcons.c x509v3/v3_pku.c \
-	x509v3/v3_pmaps.c x509v3/v3_prn.c x509v3/v3_purp.c \
-	x509v3/v3_skey.c x509v3/v3_sxnet.c x509v3/v3_utl.c \
-	x509v3/v3err.c
+	stack/stack.c ts/ts_asn1.c ts/ts_conf.c ts/ts_err.c \
+	ts/ts_lib.c ts/ts_req_print.c ts/ts_req_utils.c \
+	ts/ts_rsp_print.c ts/ts_rsp_sign.c ts/ts_rsp_utils.c \
+	ts/ts_rsp_verify.c ts/ts_verify_ctx.c txt_db/txt_db.c \
+	ui/ui_err.c ui/ui_lib.c ui/ui_openssl.c ui/ui_util.c \
+	whrlpool/wp_block.c whrlpool/wp_dgst.c x509/by_dir.c \
+	x509/by_file.c x509/x509_att.c x509/x509_cmp.c x509/x509_d2.c \
+	x509/x509_def.c x509/x509_err.c x509/x509_ext.c x509/x509_lu.c \
+	x509/x509_obj.c x509/x509_r2x.c x509/x509_req.c \
+	x509/x509_set.c x509/x509_trs.c x509/x509_txt.c x509/x509_v3.c \
+	x509/x509_vfy.c x509/x509_vpm.c x509/x509cset.c \
+	x509/x509name.c x509/x509rset.c x509/x509spki.c \
+	x509/x509type.c x509/x_all.c x509v3/pcy_cache.c \
+	x509v3/pcy_data.c x509v3/pcy_lib.c x509v3/pcy_map.c \
+	x509v3/pcy_node.c x509v3/pcy_tree.c x509v3/v3_akey.c \
+	x509v3/v3_akeya.c x509v3/v3_alt.c x509v3/v3_bcons.c \
+	x509v3/v3_bitst.c x509v3/v3_conf.c x509v3/v3_cpols.c \
+	x509v3/v3_crld.c x509v3/v3_enum.c x509v3/v3_extku.c \
+	x509v3/v3_genn.c x509v3/v3_ia5.c x509v3/v3_info.c \
+	x509v3/v3_int.c x509v3/v3_lib.c x509v3/v3_ncons.c \
+	x509v3/v3_ocsp.c x509v3/v3_pci.c x509v3/v3_pcia.c \
+	x509v3/v3_pcons.c x509v3/v3_pku.c x509v3/v3_pmaps.c \
+	x509v3/v3_prn.c x509v3/v3_purp.c x509v3/v3_skey.c \
+	x509v3/v3_sxnet.c x509v3/v3_utl.c x509v3/v3err.c
 EXTRA_libcrypto_la_SOURCES = des/ncbc_enc.c chacha/chacha-merged.c \
 	poly1305/poly1305-donna.c
 all: all-am
@@ -976,6 +976,16 @@ aes/libcrypto_la-aes_ofb.lo: aes/$(am__dirstamp) \
 	aes/$(DEPDIR)/$(am__dirstamp)
 aes/libcrypto_la-aes_wrap.lo: aes/$(am__dirstamp) \
 	aes/$(DEPDIR)/$(am__dirstamp)
+speck/$(am__dirstamp):
+	@$(MKDIR_P) speck
+	@: > speck/$(am__dirstamp)
+speck/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) speck/$(DEPDIR)
+	@: > speck/$(DEPDIR)/$(am__dirstamp)
+speck/libcrypto_la-speck_core.lo: speck/$(am__dirstamp) \
+	speck/$(DEPDIR)/$(am__dirstamp)
+speck/libcrypto_la-speck_cbc.lo: speck/$(am__dirstamp) \
+	speck/$(DEPDIR)/$(am__dirstamp)
 asn1/$(am__dirstamp):
 	@$(MKDIR_P) asn1
 	@: > asn1/$(am__dirstamp)
@@ -2068,16 +2078,6 @@ sha/libcrypto_la-sha_dgst.lo: sha/$(am__dirstamp) \
 	sha/$(DEPDIR)/$(am__dirstamp)
 sha/libcrypto_la-sha_one.lo: sha/$(am__dirstamp) \
 	sha/$(DEPDIR)/$(am__dirstamp)
-speck/$(am__dirstamp):
-	@$(MKDIR_P) speck
-	@: > speck/$(am__dirstamp)
-speck/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) speck/$(DEPDIR)
-	@: > speck/$(DEPDIR)/$(am__dirstamp)
-speck/libcrypto_la-speck_core.lo: speck/$(am__dirstamp) \
-	speck/$(DEPDIR)/$(am__dirstamp)
-speck/libcrypto_la-speck_cbc.lo: speck/$(am__dirstamp) \
-	speck/$(DEPDIR)/$(am__dirstamp)
 stack/$(am__dirstamp):
 	@$(MKDIR_P) stack
 	@: > stack/$(am__dirstamp)
@@ -3202,6 +3202,20 @@ aes/libcrypto_la-aes_wrap.lo: aes/aes_wrap.c
 #	$(AM_V_CC)source='aes/aes_wrap.c' object='aes/libcrypto_la-aes_wrap.lo' libtool=yes \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -c -o aes/libcrypto_la-aes_wrap.lo `test -f 'aes/aes_wrap.c' || echo '$(srcdir)/'`aes/aes_wrap.c
+
+speck/libcrypto_la-speck_core.lo: speck/speck_core.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -MT speck/libcrypto_la-speck_core.lo -MD -MP -MF speck/$(DEPDIR)/libcrypto_la-speck_core.Tpo -c -o speck/libcrypto_la-speck_core.lo `test -f 'speck/speck_core.c' || echo '$(srcdir)/'`speck/speck_core.c
+	$(AM_V_at)$(am__mv) speck/$(DEPDIR)/libcrypto_la-speck_core.Tpo speck/$(DEPDIR)/libcrypto_la-speck_core.Plo
+#	$(AM_V_CC)source='speck/speck_core.c' object='speck/libcrypto_la-speck_core.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -c -o speck/libcrypto_la-speck_core.lo `test -f 'speck/speck_core.c' || echo '$(srcdir)/'`speck/speck_core.c
+
+speck/libcrypto_la-speck_cbc.lo: speck/speck_cbc.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -MT speck/libcrypto_la-speck_cbc.lo -MD -MP -MF speck/$(DEPDIR)/libcrypto_la-speck_cbc.Tpo -c -o speck/libcrypto_la-speck_cbc.lo `test -f 'speck/speck_cbc.c' || echo '$(srcdir)/'`speck/speck_cbc.c
+	$(AM_V_at)$(am__mv) speck/$(DEPDIR)/libcrypto_la-speck_cbc.Tpo speck/$(DEPDIR)/libcrypto_la-speck_cbc.Plo
+#	$(AM_V_CC)source='speck/speck_cbc.c' object='speck/libcrypto_la-speck_cbc.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -c -o speck/libcrypto_la-speck_cbc.lo `test -f 'speck/speck_cbc.c' || echo '$(srcdir)/'`speck/speck_cbc.c
 
 asn1/libcrypto_la-a_bitstr.lo: asn1/a_bitstr.c
 	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -MT asn1/libcrypto_la-a_bitstr.lo -MD -MP -MF asn1/$(DEPDIR)/libcrypto_la-a_bitstr.Tpo -c -o asn1/libcrypto_la-a_bitstr.lo `test -f 'asn1/a_bitstr.c' || echo '$(srcdir)/'`asn1/a_bitstr.c
@@ -6184,20 +6198,6 @@ sha/libcrypto_la-sha_one.lo: sha/sha_one.c
 #	$(AM_V_CC)source='sha/sha_one.c' object='sha/libcrypto_la-sha_one.lo' libtool=yes \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -c -o sha/libcrypto_la-sha_one.lo `test -f 'sha/sha_one.c' || echo '$(srcdir)/'`sha/sha_one.c
-
-speck/libcrypto_la-speck_core.lo: speck/speck_core.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -MT speck/libcrypto_la-speck_core.lo -MD -MP -MF speck/$(DEPDIR)/libcrypto_la-speck_core.Tpo -c -o speck/libcrypto_la-speck_core.lo `test -f 'speck/speck_core.c' || echo '$(srcdir)/'`speck/speck_core.c
-	$(AM_V_at)$(am__mv) speck/$(DEPDIR)/libcrypto_la-speck_core.Tpo speck/$(DEPDIR)/libcrypto_la-speck_core.Plo
-#	$(AM_V_CC)source='speck/speck_core.c' object='speck/libcrypto_la-speck_core.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -c -o speck/libcrypto_la-speck_core.lo `test -f 'speck/speck_core.c' || echo '$(srcdir)/'`speck/speck_core.c
-
-speck/libcrypto_la-speck_cbc.lo: speck/speck_cbc.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -MT speck/libcrypto_la-speck_cbc.lo -MD -MP -MF speck/$(DEPDIR)/libcrypto_la-speck_cbc.Tpo -c -o speck/libcrypto_la-speck_cbc.lo `test -f 'speck/speck_cbc.c' || echo '$(srcdir)/'`speck/speck_cbc.c
-	$(AM_V_at)$(am__mv) speck/$(DEPDIR)/libcrypto_la-speck_cbc.Tpo speck/$(DEPDIR)/libcrypto_la-speck_cbc.Plo
-#	$(AM_V_CC)source='speck/speck_cbc.c' object='speck/libcrypto_la-speck_cbc.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -c -o speck/libcrypto_la-speck_cbc.lo `test -f 'speck/speck_cbc.c' || echo '$(srcdir)/'`speck/speck_cbc.c
 
 stack/libcrypto_la-stack.lo: stack/stack.c
 	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrypto_la_CFLAGS) $(CFLAGS) -MT stack/libcrypto_la-stack.lo -MD -MP -MF stack/$(DEPDIR)/libcrypto_la-stack.Tpo -c -o stack/libcrypto_la-stack.lo `test -f 'stack/stack.c' || echo '$(srcdir)/'`stack/stack.c

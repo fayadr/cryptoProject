@@ -417,7 +417,7 @@ configure:12734: $? = 0
 configure:12735: result: yes
 configure:12746: checking for strlcpy
 configure:12746: gcc -o conftest  -Wall -std=gnu99 -g -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_SOURCE -D_GNU_SOURCE -Wno-pointer-sign   conftest.c  >&5
-/tmp/cczDrHYp.o: In function `main':
+/tmp/ccL8WUFU.o: In function `main':
 /home/fayad/Documents/ProjetCrypto/libressl-2.1.1/conftest.c:57: undefined reference to `strlcpy'
 collect2: error: ld returned 1 exit status
 configure:12746: $? = 1
@@ -485,7 +485,7 @@ configure: failed program was:
 configure:12746: result: no
 configure:12770: checking for strlcat
 configure:12770: gcc -o conftest  -Wall -std=gnu99 -g -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_SOURCE -D_GNU_SOURCE -Wno-pointer-sign   conftest.c  >&5
-/tmp/ccEHOzuu.o: In function `main':
+/tmp/ccUEmHG1.o: In function `main':
 /home/fayad/Documents/ProjetCrypto/libressl-2.1.1/conftest.c:58: undefined reference to `strlcat'
 collect2: error: ld returned 1 exit status
 configure:12770: $? = 1
@@ -569,7 +569,7 @@ configure:12842: $? = 0
 configure:12842: result: yes
 configure:12866: checking for reallocarray
 configure:12866: gcc -o conftest  -Wall -std=gnu99 -g -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_SOURCE -D_GNU_SOURCE -Wno-pointer-sign   conftest.c  >&5
-/tmp/ccpxbGuI.o: In function `main':
+/tmp/ccKXcDxi.o: In function `main':
 /home/fayad/Documents/ProjetCrypto/libressl-2.1.1/conftest.c:59: undefined reference to `reallocarray'
 collect2: error: ld returned 1 exit status
 configure:12866: $? = 1
@@ -639,7 +639,7 @@ configure: failed program was:
 configure:12866: result: no
 configure:12890: checking for timingsafe_bcmp
 configure:12890: gcc -o conftest  -Wall -std=gnu99 -g -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_SOURCE -D_GNU_SOURCE -Wno-pointer-sign   conftest.c  >&5
-/tmp/ccMx7ZMP.o: In function `main':
+/tmp/cc0scIOn.o: In function `main':
 /home/fayad/Documents/ProjetCrypto/libressl-2.1.1/conftest.c:60: undefined reference to `timingsafe_bcmp'
 collect2: error: ld returned 1 exit status
 configure:12890: $? = 1
@@ -710,7 +710,7 @@ configure: failed program was:
 configure:12890: result: no
 configure:12914: checking for timingsafe_memcmp
 configure:12914: gcc -o conftest  -Wall -std=gnu99 -g -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_SOURCE -D_GNU_SOURCE -Wno-pointer-sign   conftest.c  >&5
-/tmp/ccGC5A3T.o: In function `main':
+/tmp/cc9NtDos.o: In function `main':
 /home/fayad/Documents/ProjetCrypto/libressl-2.1.1/conftest.c:61: undefined reference to `timingsafe_memcmp'
 collect2: error: ld returned 1 exit status
 configure:12914: $? = 1
@@ -782,7 +782,7 @@ configure: failed program was:
 configure:12914: result: no
 configure:12938: checking for arc4random_buf
 configure:12938: gcc -o conftest  -Wall -std=gnu99 -g -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_SOURCE -D_GNU_SOURCE -Wno-pointer-sign   conftest.c  >&5
-/tmp/ccaIKKeW.o: In function `main':
+/tmp/cct5NACx.o: In function `main':
 /home/fayad/Documents/ProjetCrypto/libressl-2.1.1/conftest.c:62: undefined reference to `arc4random_buf'
 collect2: error: ld returned 1 exit status
 configure:12938: $? = 1
@@ -855,7 +855,7 @@ configure: failed program was:
 configure:12938: result: no
 configure:12962: checking for getentropy
 configure:12962: gcc -o conftest  -Wall -std=gnu99 -g -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_SOURCE -D_GNU_SOURCE -Wno-pointer-sign   conftest.c  >&5
-/tmp/ccMhFPf0.o: In function `main':
+/tmp/ccjFcCcE.o: In function `main':
 /home/fayad/Documents/ProjetCrypto/libressl-2.1.1/conftest.c:63: undefined reference to `getentropy'
 collect2: error: ld returned 1 exit status
 configure:12962: $? = 1
@@ -929,7 +929,7 @@ configure: failed program was:
 configure:12962: result: no
 configure:12986: checking for issetugid
 configure:12986: gcc -o conftest  -Wall -std=gnu99 -g -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_SOURCE -D_GNU_SOURCE -Wno-pointer-sign   conftest.c  >&5
-/tmp/ccotGhl7.o: In function `main':
+/tmp/ccOBIpGJ.o: In function `main':
 /home/fayad/Documents/ProjetCrypto/libressl-2.1.1/conftest.c:64: undefined reference to `issetugid'
 collect2: error: ld returned 1 exit status
 configure:12986: $? = 1
@@ -1004,7 +1004,7 @@ configure: failed program was:
 configure:12986: result: no
 configure:13010: checking for strtonum
 configure:13010: gcc -o conftest  -Wall -std=gnu99 -g -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_SOURCE -D_GNU_SOURCE -Wno-pointer-sign   conftest.c  >&5
-/tmp/ccfd2Isb.o: In function `main':
+/tmp/cc4ZBS8N.o: In function `main':
 /home/fayad/Documents/ProjetCrypto/libressl-2.1.1/conftest.c:65: undefined reference to `strtonum'
 collect2: error: ld returned 1 exit status
 configure:13010: $? = 1
@@ -1080,7 +1080,7 @@ configure: failed program was:
 configure:13010: result: no
 configure:13034: checking for explicit_bzero
 configure:13034: gcc -o conftest  -Wall -std=gnu99 -g -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_SOURCE -D_GNU_SOURCE -Wno-pointer-sign   conftest.c  >&5
-/tmp/cc5HMJ0d.o: In function `main':
+/tmp/ccj2W9LP.o: In function `main':
 /home/fayad/Documents/ProjetCrypto/libressl-2.1.1/conftest.c:66: undefined reference to `explicit_bzero'
 collect2: error: ld returned 1 exit status
 configure:13034: $? = 1
@@ -1169,7 +1169,7 @@ configure:13134: $? = 0
 configure:13134: result: yes
 configure:13141: checking for funopen
 configure:13141: gcc -o conftest  -Wall -std=gnu99 -g -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_SOURCE -D_GNU_SOURCE -Wno-pointer-sign   conftest.c  >&5
-/tmp/ccmrS9Mj.o: In function `main':
+/tmp/ccNVbs4W.o: In function `main':
 /home/fayad/Documents/ProjetCrypto/libressl-2.1.1/conftest.c:70: undefined reference to `funopen'
 collect2: error: ld returned 1 exit status
 configure:13141: $? = 1

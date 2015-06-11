@@ -68,8 +68,10 @@ void SPECK_encrypt(u64 pt[], u64 ct[], u64 k[], u16 key_size, u8 n);
 
 
 struct speck_key_st {
-    u64 l[35];
-    u64 k[32];
+    //u64 l[35];
+    //u64 k[32];
+    u64 l[50];
+    u64 k[50];
     u8 m;
     u8 t;
 };
